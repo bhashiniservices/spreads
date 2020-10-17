@@ -35,8 +35,8 @@
       className: PropTypes.string,
       /** Child component(s) */
       children: PropTypes.oneOfType([
-        PropTypes.renderable,
-        PropTypes.arrayOf(PropTypes.renderable)
+        PropTypes.node,
+        PropTypes.arrayOf(PropTypes.node)
       ]),
     },
 
@@ -121,8 +121,8 @@
       title: PropTypes.string,
       className: PropTypes.string,
       children: PropTypes.oneOfType([
-        PropTypes.renderable,
-        PropTypes.arrayOf(PropTypes.renderable)
+        PropTypes.node,
+        PropTypes.arrayOf(PropTypes.node)
       ]),
     },
 
@@ -164,8 +164,8 @@
       onClose: PropTypes.func,
       className: PropTypes.string,
       children: PropTypes.oneOfType([
-        PropTypes.renderable,
-        PropTypes.arrayOf(PropTypes.renderable)
+        PropTypes.node,
+        PropTypes.arrayOf(PropTypes.node)
       ])
     },
 
@@ -303,8 +303,8 @@
     propTypes: {
       onClose: PropTypes.func,
       children: PropTypes.oneOfType([
-        PropTypes.renderable,
-        PropTypes.arrayOf(PropTypes.renderable)
+        PropTypes.node,
+        PropTypes.arrayOf(PropTypes.node)
       ]),
     },
 
@@ -332,8 +332,8 @@
       onCancel: PropTypes.func,
       onConfirm: PropTypes.func,
       children: PropTypes.oneOfType([
-        PropTypes.renderable,
-        PropTypes.arrayOf(PropTypes.renderable)
+        PropTypes.node,
+        PropTypes.arrayOf(PropTypes.node)
       ])
     },
 
