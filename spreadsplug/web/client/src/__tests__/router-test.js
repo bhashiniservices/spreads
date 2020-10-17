@@ -1,5 +1,5 @@
 describe("Router", function() {
-  var Router, Workflows;
+  var Router, Workflows, ReactDOM;
   beforeEach(function() {
     jest.dontMock('../router.js');
     jest.dontMock('jquery');

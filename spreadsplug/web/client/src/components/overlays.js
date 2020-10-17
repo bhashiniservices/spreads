@@ -20,6 +20,7 @@
 (function() {
   'use strict';
   var React = require('react'),
+      ReactDOM = require('react-dom'),
       _ = require('underscore'),
       Mousetrap = require('mousetrap'),
       PropTypes = require('prop-types'),

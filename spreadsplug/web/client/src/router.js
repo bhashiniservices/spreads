@@ -20,6 +20,7 @@
 (function() {
   'use strict';
   var Backbone = require('backbone'),
+      ReactDOM = require('react-dom'),
       _ = require('underscore'),
       SpreadsApp = require('./components/spreadsapp'),
       Workflows = require('./workflow.js'),
