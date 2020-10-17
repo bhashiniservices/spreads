@@ -27,7 +27,8 @@
       LayeredComponentMixin = require('./overlays.js').LayeredComponentMixin,
       Overlay = require('./overlays.js').Overlay,
       F = require('./foundation'),
-      PropTypes = require('prop-types');
+      PropTypes = require('prop-types'),
+      createClass = require('create-react-class');
 
   /**
    * Helper function to compare the verbosity of two log levels.
@@ -51,7 +52,7 @@
    * to query GitHub for similar issues and to submit a new issue with
    * the traceback and Exception name as the title.
    */
-  var BugModal = React.createClass({
+  var BugModal = createClass({
     propTypes: {
       traceback: PropTypes.string.isRequired,
       onClose: PropTypes.func.isRequired
@@ -108,7 +109,7 @@
   /**
    * Display a log entry in a table row
    */
-  var LogRecord = React.createClass({
+  var LogRecord = createClass({
     mixins: [LayeredComponentMixin],
 
     propTypes: {
@@ -162,7 +163,7 @@
   /**
    * Display log entries in a table
    */
-  var LogDisplay = React.createClass({
+  var LogDisplay = createClass({
     /**
      * Load log mesages from server
      */

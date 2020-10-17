@@ -32,12 +32,13 @@
       ConfigWidget = require('./config.js').ConfigWidget,
       CropWidget = require('./cropdialog.js'),
       util = require('../util.js'),
-      PropTypes = require('prop-types');
+      PropTypes = require('prop-types'),
+      createClass = require('create-react-class');
 
   var placeholderImg = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAKAAAAB4AQMAAABPbGssAAAAA1BMVEWZmZl86KQWAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gQIFjciiRhnwgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAZSURBVEjH7cEBDQAAAMKg909tDwcUAAAPBgnYAAHW6F1SAAAAAElFTkSuQmCC";
 
 
-  var StatusDisplay = React.createClass({
+  var StatusDisplay = createClass({
     propTypes: {
       numPages: PropTypes.number.isRequired,
       numExpected: PropTypes.number,
@@ -89,7 +90,7 @@
   });
 
 
-  var Preview = React.createClass({
+  var Preview = createClass({
     mixins: [LayeredComponentMixin],
 
     propTypes: {
@@ -180,7 +181,7 @@
   });
 
 
-  var ConfigModal = React.createClass({
+  var ConfigModal = createClass({
     propTypes: {
       workflow: PropTypes.object.isRequired,
       onClose: PropTypes.func.isRequired,
@@ -239,7 +240,7 @@
   });
 
 
-  var Control = React.createClass({
+  var Control = createClass({
     mixins: [LayeredComponentMixin],
 
     propTypes: {
@@ -351,7 +352,7 @@
   });
 
 
-  var ShortcutHelp = React.createClass({
+  var ShortcutHelp = createClass({
     propTypes: {
       captureKeys: PropTypes.arrayOf(PropTypes.string)
     },
@@ -380,7 +381,7 @@
   /**
    * Screen component to control the capture process.
    */
-  var CaptureScreen = React.createClass({
+  var CaptureScreen = createClass({
     propTypes: {
       workflow: PropTypes.object.isRequired
     },

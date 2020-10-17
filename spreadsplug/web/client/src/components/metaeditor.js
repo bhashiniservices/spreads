@@ -25,10 +25,11 @@
       jQuery = require('jquery'),
       F = require('./foundation.js'),
       util = require('../util.js'),
-      PropTypes = require('prop-types');
+      PropTypes = require('prop-types'),
+      createClass = require('create-react-class');
 
 
-  var AutoComplete = React.createClass({
+  var AutoComplete = createClass({
     propTypes: {
       onClick: PropTypes.func
     },
@@ -49,7 +50,7 @@
   /**
   * this component is the parent of AutoComplete
   */
-  var AutoCompleteBox = React.createClass({
+  var AutoCompleteBox = createClass({
     propTypes: {
       list: PropTypes.array,
       onSelect: PropTypes.func
@@ -72,7 +73,7 @@
   });
 
 
-  var AutocompleteField = React.createClass({
+  var AutocompleteField = createClass({
     propTypes: {
       key: PropTypes.string,
       value: PropTypes.string,
@@ -199,7 +200,7 @@
   });
 
 
-  var Field = React.createClass({
+  var Field = createClass({
     propTypes: {
       key: PropTypes.string,
       value: PropTypes.string,
@@ -238,7 +239,7 @@
   });
 
 
-  var FieldSet = React.createClass({
+  var FieldSet = createClass({
     propTypes: {
       name: PropTypes.string,
       values: PropTypes.array,
@@ -315,7 +316,7 @@
   });
 
 
-  var MetadataEditor = React.createClass({
+  var MetadataEditor = createClass({
     propTypes: {
       metadata: PropTypes.object,
       errors: PropTypes.object

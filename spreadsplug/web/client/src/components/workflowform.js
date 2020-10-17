@@ -26,12 +26,13 @@
       ModelMixin = require('../../vendor/backbonemixin.js'),
       MetadataEditor = require('./metaeditor.js').MetadataEditor,
       Configuration = require('./config.js').Configuration,
-      PropTypes = require('prop-types');
+      PropTypes = require('prop-types'),
+      createClass = require('create-react-class');
 
   /**
    * View component for workflow creation
    */
-  var WorkflowForm = React.createClass({
+  var WorkflowForm = createClass({
     propTypes: {
       workflow: PropTypes.object,
       isNew: PropTypes.bool,

@@ -26,9 +26,10 @@
       Overlay = require('./overlays.js').Overlay,
       LayeredComponentMixin = require('./overlays.js').LayeredComponentMixin,
       Configuration = require('./config.js').Configuration,
-      PropTypes = require('prop-types');
+      PropTypes = require('prop-types'),
+      createClass = require('create-react-class');
 
-  var Preferences = React.createClass({
+  var Preferences = createClass({
     mixins: [LayeredComponentMixin],
 
     propTypes: {

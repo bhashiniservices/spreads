@@ -27,7 +27,8 @@
       LayeredComponentMixin = require('./overlays.js').LayeredComponentMixin,
       F = require('./foundation.js'),
       util = require('../util.js'),
-      PropTypes = require('prop-types');
+      PropTypes = require('prop-types'),
+      createClass = require('create-react-class');
 
 
   function clientIsMacOS() {
@@ -35,7 +36,7 @@
   }
 
 
-  var ActionBar = React.createClass({
+  var ActionBar = createClass({
     propTypes: {
       smallDisplay: PropTypes.bool,
       workflowSlug: PropTypes.string,
@@ -167,7 +168,7 @@
   });
 
 
-  var StepStatus = React.createClass({
+  var StepStatus = createClass({
     propTypes: {
       pages: PropTypes.array,
       status: PropTypes.object,
@@ -243,7 +244,7 @@
    *
    * @property {Workflow} workflow  - Workflow to set configuration for
    */
-  var WorkflowItem = React.createClass({
+  var WorkflowItem = createClass({
     mixins: [LayeredComponentMixin],
 
     getInitialState: function() {
@@ -460,7 +461,7 @@
    *
    * @property {Backbone.Collection<Workflow>} workflows
    */
-  var WorkflowList = React.createClass({
+  var WorkflowList = createClass({
     propTypes: {
       workflows: PropTypes.object
     },

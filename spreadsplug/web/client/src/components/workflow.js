@@ -29,9 +29,10 @@
       Overlay = require('./overlays.js').Overlay,
       LayeredComponentMixin = require('./overlays.js').LayeredComponentMixin,
       util = require('../util.js'),
-      PropTypes = require('prop-types');
+      PropTypes = require('prop-types'),
+      createClass = require('create-react-class');
 
-  var PagePreview = React.createClass({
+  var PagePreview = createClass({
     propTypes: {
       imageType: PropTypes.string
     },
@@ -89,7 +90,7 @@
    *
    * @property {Workflow} workflow - Workflow to display
    */
-  var WorkflowDisplay = React.createClass({
+  var WorkflowDisplay = createClass({
     /** Enables two-way databinding with Backbone model */
     mixins: [ModelMixin, LayeredComponentMixin],
 

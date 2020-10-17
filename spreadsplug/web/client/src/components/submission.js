@@ -29,9 +29,10 @@
       LayeredComponentMixin = require('./overlays.js').LayeredComponentMixin,
       ConfigWidget = require('./config.js').ConfigWidget,
       Configuration = require('./config.js').Configuration,
-      PropTypes = require('prop-types');
+      PropTypes = require('prop-types'),
+      createClass = require('create-react-class');
 
-  var SubmissionForm = React.createClass({
+  var SubmissionForm = createClass({
     mixins: [LayeredComponentMixin],
 
     propTypes: {

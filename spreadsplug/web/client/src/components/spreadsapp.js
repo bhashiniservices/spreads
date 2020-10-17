@@ -32,6 +32,7 @@
       LogDisplay = require('./logdisplay.js'),
       Preferences = require('./preferences.js'),
       PropTypes = require('prop-types'),
+      createClass = require('create-react-class'),
       F = require('./foundation');  // Shorthand for Foundation components
 
 
@@ -44,7 +45,7 @@
    * @property {string} [workflowSlug] - Associated workflow slug
    * @property {string} view - Name of view to display
    */
-  var SpreadsApp = React.createClass({
+  var SpreadsApp = createClass({
     propTypes: {
       workflows: PropTypes.object.isRequired,
       workflowSlug: PropTypes.string,

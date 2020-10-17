@@ -22,7 +22,8 @@
   var React = require('react'),
       _ = require('underscore'),
       Mousetrap = require('mousetrap'),
-      PropTypes = require('prop-types');
+      PropTypes = require('prop-types'),
+      createClass = require('create-react-class');
 
   /** Create a new "layer" on the page like a modal or overlay
    *
@@ -84,7 +85,7 @@
     }
   };
 
-  var Overlay = React.createClass({
+  var Overlay = createClass({
     propTypes: {
       color: PropTypes.string
     },
@@ -114,7 +115,7 @@
    * @property {string} message - Message to display below the activity
    *    animation
    */
-  var Activity = React.createClass({
+  var Activity = createClass({
     displayName: "ActivityOverlay",
     render: function() {
       return (
@@ -135,7 +136,7 @@
    * @property {function} onClose - Callback function for when the lightbox is closed.
    * @property {url} src - Source URL for the image to be displayed
    */
-  var LightBox = React.createClass({
+  var LightBox = createClass({
     displayName: "LightBox",
     propTypes: {
       imageUrl: PropTypes.string.isRequired,
@@ -218,7 +219,7 @@
     }
   });
 
-  var Progress = React.createClass({
+  var Progress = createClass({
     displayName: "ProgressOverlay",
     render: function() {
       var widthPercent;

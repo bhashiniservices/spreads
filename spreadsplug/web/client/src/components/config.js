@@ -26,13 +26,14 @@
       util = require('../util.js'),
       ModelMixin = require('../../vendor/backbonemixin.js'),
       capitalize = require('../util.js').capitalize,
-      PropTypes = require('prop-types');
+      PropTypes = require('prop-types'),
+      createClass = require('create-react-class');
 
 
   /**
    * A single option component for the workflow configuration.
    */
-  var PluginOption = React.createClass({
+  var PluginOption = createClass({
     propTypes: {
       /** Name of the option */
       name: PropTypes.string.isRequired,
@@ -111,7 +112,7 @@
   /**
    * Collection of options for a single section
    */
-  var ConfigWidget = React.createClass({
+  var ConfigWidget = createClass({
     propTypes: {
       /** Whether to show advanced options */
       showAdvanced: PropTypes.bool,
@@ -158,7 +159,7 @@
   /**
    * Component for selecting plugin to display settings for
    */
-  var PluginSelector = React.createClass({
+  var PluginSelector = createClass({
     propTypes: {
       /** Type of plugins to select */
       type: PropTypes.string.isRequired,
@@ -210,7 +211,7 @@
   });
 
 
-  var SectionSelector = React.createClass({
+  var SectionSelector = createClass({
     propTypes: {
       active: PropTypes.bool,
       onClick: PropTypes.func.isRequired,
@@ -245,7 +246,7 @@
    * Offers a dropdown to select a plugin to configure and displays its
    * configuration widget.
    */
-  var Configuration = React.createClass({
+  var Configuration = createClass({
     propTypes: {
       /** Available plugins by type */
       availablePlugins: PropTypes.object,

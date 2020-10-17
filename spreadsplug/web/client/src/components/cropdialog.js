@@ -24,9 +24,10 @@
       React = require('react'),
       util = require('../util.js'),
       F = require('./foundation.js'),
-      PropTypes = require('prop-types');
+      PropTypes = require('prop-types'),
+      createClass = require('create-react-class');
 
-  var CropWidget = React.createClass({
+  var CropWidget = createClass({
     propTypes: {
       /** Current crop parameters */
       cropParams: PropTypes.object,

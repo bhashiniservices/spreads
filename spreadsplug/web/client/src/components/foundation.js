@@ -22,12 +22,13 @@
   var React = require('react'),
       classSet = require('classnames'),
       _ = require('underscore'),
-      PropTypes = require('prop-types');
+      PropTypes = require('prop-types'),
+      createClass = require('create-react-class');
 
   /**
    * Row component.
    */
-  var Row =  React.createClass({
+  var Row =  createClass({
     propTypes: {
       /** Useful for pre/postfix labels in forms */
       collapse: PropTypes.bool,
@@ -63,7 +64,7 @@
   /**
    * Column component
    */
-  var Column = React.createClass({
+  var Column = createClass({
     propTypes: {
       size: PropTypes.oneOfType([
         PropTypes.number,
@@ -111,7 +112,7 @@
   /**
    * Button component.
    */
-  var Button = React.createClass({
+  var Button = createClass({
     propTypes: {
       size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
       secondary: PropTypes.bool,
@@ -155,7 +156,7 @@
   /**
    * Display a Foundation "alert" box.
    */
-  var Alert = React.createClass({
+  var Alert = createClass({
     propTypes: {
       severity: PropTypes.oneOf([
         'standard', 'success', 'warning', 'info', 'alert', 'secondary'
@@ -187,7 +188,7 @@
   });
 
 
-  var PageButton = React.createClass({
+  var PageButton = createClass({
     propTypes: {
       current: PropTypes.bool,
       num: PropTypes.number,
@@ -209,7 +210,7 @@
   /**
    * Pagination component.
    */
-  var Pagination = React.createClass({
+  var Pagination = createClass({
     propTypes: {
       centered: PropTypes.bool,
       pageCount: PropTypes.number.isRequired,
@@ -299,7 +300,7 @@
   /**
    * Modal overlay with close button
    */
-  var Modal = React.createClass({
+  var Modal = createClass({
     propTypes: {
       onClose: PropTypes.func,
       children: PropTypes.oneOfType([
@@ -327,7 +328,7 @@
   /**
    * Modal overlay with 'OK' and 'Cancel' buttons.
    */
-  var ConfirmModal = React.createClass({
+  var ConfirmModal = createClass({
     propTypes: {
       onCancel: PropTypes.func,
       onConfirm: PropTypes.func,
@@ -354,7 +355,7 @@
     }
   });
 
-  var Label = React.createClass({
+  var Label = createClass({
     propTypes: {
       round: PropTypes.bool,
       severity: PropTypes.oneOf([

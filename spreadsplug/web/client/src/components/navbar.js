@@ -24,9 +24,10 @@
       jQuery = require('jquery'),
       F = require('./foundation.js'),
       LayeredComponentMixin = require('./overlays.js').LayeredComponentMixin,
-      Overlay = require('./overlays.js').Overlay;
+      Overlay = require('./overlays.js').Overlay,
+      createClass = require('create-react-class');
 
-  var ShutdownModal = React.createClass({
+  var ShutdownModal = createClass({
     mixins: [LayeredComponentMixin],
 
     getInitialState: function() {
@@ -89,7 +90,7 @@
   });
 
 
-  var AboutModal = React.createClass({
+  var AboutModal = createClass({
     render: function() {
       var logoUrl = require('../../../../../doc/_static/logo.png');
 
@@ -118,7 +119,7 @@
    *
    * @property {string} title - Title to display
    */
-  module.exports = React.createClass({
+  module.exports = createClass({
     displayName: "NavigationBar",
 
     mixins: [LayeredComponentMixin],
