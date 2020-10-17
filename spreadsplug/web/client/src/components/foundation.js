@@ -102,7 +102,7 @@
           if (offset[0]) classes[offset[1] + '-offset-' + offset[0]] = true;
         });
       }
-      var className = [React.addons.classSet(classes), this.props.className].join(" ");
+      var className = [require('classnames')(classes), this.props.className].join(" ");
       return (<div className={className}>
                 {this.props.children}
               </div>);
