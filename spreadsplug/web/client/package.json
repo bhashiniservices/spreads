@@ -25,14 +25,15 @@
     "create-react-class": "^15.7.0",
     "envify": "~1.2.1",
     "font-awesome": "~4.1.0",
-    "jquery": "~2.1.1",
+    "jquery": "^3.5.1",
     "merge": "^1.2.1",
     "mousetrap": "0.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "underscore": "~1.7.0",
-    "underscore.deep": "~0.3.0"
+    "underscore.deep": "~0.3.0",
+    "what-input": "^5.2.10"
   },
   "jest": {
     "scriptPreprocessor": "./testutils/preprocessor.js",
