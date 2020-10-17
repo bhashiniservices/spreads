@@ -24,12 +24,13 @@
       _ = require('underscore'),
       jQuery = require('jquery'),
       F = require('./foundation.js'),
-      util = require('../util.js');
+      util = require('../util.js'),
+      PropTypes = require('prop-types');
 
 
   var AutoComplete = React.createClass({
     propTypes: {
-      onClick: React.PropTypes.func
+      onClick: PropTypes.func
     },
 
     render: function() {
@@ -50,8 +51,8 @@
   */
   var AutoCompleteBox = React.createClass({
     propTypes: {
-      list: React.PropTypes.array,
-      onSelect: React.PropTypes.func
+      list: PropTypes.array,
+      onSelect: PropTypes.func
     },
 
     render: function() {
@@ -73,11 +74,11 @@
 
   var AutocompleteField = React.createClass({
     propTypes: {
-      key: React.PropTypes.string,
-      value: React.PropTypes.string,
-      name: React.PropTypes.string,
-      error: React.PropTypes.string,
-      onChange: React.PropTypes.func,
+      key: PropTypes.string,
+      value: PropTypes.string,
+      name: PropTypes.string,
+      error: PropTypes.string,
+      onChange: PropTypes.func,
     },
 
     getInitialState: function() {
@@ -200,10 +201,10 @@
 
   var Field = React.createClass({
     propTypes: {
-      key: React.PropTypes.string,
-      value: React.PropTypes.string,
-      error: React.PropTypes.string,
-      onChange: React.PropTypes.func
+      key: PropTypes.string,
+      value: PropTypes.string,
+      error: PropTypes.string,
+      onChange: PropTypes.func
     },
 
     render: function() {
@@ -239,10 +240,10 @@
 
   var FieldSet = React.createClass({
     propTypes: {
-      name: React.PropTypes.string,
-      values: React.PropTypes.array,
-      errors: React.PropTypes.array,
-      onChange: React.PropTypes.func
+      name: PropTypes.string,
+      values: PropTypes.array,
+      errors: PropTypes.array,
+      onChange: PropTypes.func
     },
 
     onModified: function(idx, value) {
@@ -316,8 +317,8 @@
 
   var MetadataEditor = React.createClass({
     propTypes: {
-      metadata: React.PropTypes.object,
-      errors: React.PropTypes.object
+      metadata: PropTypes.object,
+      errors: PropTypes.object
     },
 
     updateMetadata: function(newData) {

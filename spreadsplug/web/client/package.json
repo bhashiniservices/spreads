@@ -27,6 +27,7 @@
     "jquery": "~2.1.1",
     "merge": "^1.2.1",
     "mousetrap": "0.0.1",
+    "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "underscore": "~1.7.0",
     "underscore.deep": "~0.3.0"

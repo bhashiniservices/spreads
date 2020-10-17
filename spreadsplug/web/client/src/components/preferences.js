@@ -25,15 +25,16 @@
       F = require('./foundation.js'),
       Overlay = require('./overlays.js').Overlay,
       LayeredComponentMixin = require('./overlays.js').LayeredComponentMixin,
-      Configuration = require('./config.js').Configuration;
+      Configuration = require('./config.js').Configuration,
+      PropTypes = require('prop-types');
 
   var Preferences = React.createClass({
     mixins: [LayeredComponentMixin],
 
     propTypes: {
-      globalConfig: React.PropTypes.object.isRequired,
-      onSave: React.PropTypes.func.isRequired,
-      errors: React.PropTypes.object
+      globalConfig: PropTypes.object.isRequired,
+      onSave: PropTypes.func.isRequired,
+      errors: PropTypes.object
     },
 
     getDefaultProps: function() {

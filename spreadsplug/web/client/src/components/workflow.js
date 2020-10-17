@@ -28,11 +28,12 @@
       Lightbox = require('./overlays.js').LightBox,
       Overlay = require('./overlays.js').Overlay,
       LayeredComponentMixin = require('./overlays.js').LayeredComponentMixin,
-      util = require('../util.js');
+      util = require('../util.js'),
+      PropTypes = require('prop-types');
 
   var PagePreview = React.createClass({
     propTypes: {
-      imageType: React.PropTypes.string
+      imageType: PropTypes.string
     },
 
     getInitialState: function() {

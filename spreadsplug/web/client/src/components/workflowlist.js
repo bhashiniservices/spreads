@@ -26,7 +26,8 @@
       Overlay = require('./overlays.js').Overlay,
       LayeredComponentMixin = require('./overlays.js').LayeredComponentMixin,
       F = require('./foundation.js'),
-      util = require('../util.js');
+      util = require('../util.js'),
+      PropTypes = require('prop-types');
 
 
   function clientIsMacOS() {
@@ -36,16 +37,16 @@
 
   var ActionBar = React.createClass({
     propTypes: {
-      smallDisplay: React.PropTypes.bool,
-      workflowSlug: React.PropTypes.string,
-      removalBlocked: React.PropTypes.bool,  // TODO: Move to state?
-      hasPages: React.PropTypes.bool,
-      onRemove: React.PropTypes.func,
-      onDownload: React.PropTypes.func,  // TODO: Move to state?
-      onCapture: React.PropTypes.func,
-      onProcess: React.PropTypes.func,
-      onOutput: React.PropTypes.func,
-      onTransfer: React.PropTypes.func
+      smallDisplay: PropTypes.bool,
+      workflowSlug: PropTypes.string,
+      removalBlocked: PropTypes.bool,  // TODO: Move to state?
+      hasPages: PropTypes.bool,
+      onRemove: PropTypes.func,
+      onDownload: PropTypes.func,  // TODO: Move to state?
+      onCapture: PropTypes.func,
+      onProcess: PropTypes.func,
+      onOutput: PropTypes.func,
+      onTransfer: PropTypes.func
     },
 
     getInitialState: function() {
@@ -168,9 +169,9 @@
 
   var StepStatus = React.createClass({
     propTypes: {
-      pages: React.PropTypes.array,
-      status: React.PropTypes.object,
-      outFiles: React.PropTypes.array
+      pages: PropTypes.array,
+      status: PropTypes.object,
+      outFiles: PropTypes.array
     },
 
     render: function() {
@@ -461,7 +462,7 @@
    */
   var WorkflowList = React.createClass({
     propTypes: {
-      workflows: React.PropTypes.object
+      workflows: PropTypes.object
     },
 
     /** Enables two-way databinding with Backbone model */

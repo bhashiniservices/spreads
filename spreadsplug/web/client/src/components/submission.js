@@ -28,13 +28,14 @@
       Overlay = require('./overlays.js').Overlay,
       LayeredComponentMixin = require('./overlays.js').LayeredComponentMixin,
       ConfigWidget = require('./config.js').ConfigWidget,
-      Configuration = require('./config.js').Configuration;
+      Configuration = require('./config.js').Configuration,
+      PropTypes = require('prop-types');
 
   var SubmissionForm = React.createClass({
     mixins: [LayeredComponentMixin],
 
     propTypes: {
-      workflow: React.PropTypes.object.isRequired
+      workflow: PropTypes.object.isRequired
     },
 
     getInitialState: function() {

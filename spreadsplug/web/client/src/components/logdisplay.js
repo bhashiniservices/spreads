@@ -26,7 +26,8 @@
       util = require('../util.js'),
       LayeredComponentMixin = require('./overlays.js').LayeredComponentMixin,
       Overlay = require('./overlays.js').Overlay,
-      F = require('./foundation');
+      F = require('./foundation'),
+      PropTypes = require('prop-types');
 
   /**
    * Helper function to compare the verbosity of two log levels.
@@ -52,8 +53,8 @@
    */
   var BugModal = React.createClass({
     propTypes: {
-      traceback: React.PropTypes.string.isRequired,
-      onClose: React.PropTypes.func.isRequired
+      traceback: PropTypes.string.isRequired,
+      onClose: PropTypes.func.isRequired
     },
 
     render: function() {
@@ -111,11 +112,11 @@
     mixins: [LayeredComponentMixin],
 
     propTypes: {
-      traceback: React.PropTypes.string,
-      level: React.PropTypes.string,
-      origin: React.PropTypes.string.isRequired,
-      message: React.PropTypes.string.isRequired,
-      time: React.PropTypes.instanceOf(Date).isRequired
+      traceback: PropTypes.string,
+      level: PropTypes.string,
+      origin: PropTypes.string.isRequired,
+      message: PropTypes.string.isRequired,
+      time: PropTypes.instanceOf(Date).isRequired
     },
 
     getInitialState: function() {

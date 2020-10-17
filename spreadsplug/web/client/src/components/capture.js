@@ -31,16 +31,17 @@
       LayeredComponentMixin = require('./overlays.js').LayeredComponentMixin,
       ConfigWidget = require('./config.js').ConfigWidget,
       CropWidget = require('./cropdialog.js'),
-      util = require('../util.js');
+      util = require('../util.js'),
+      PropTypes = require('prop-types');
 
   var placeholderImg = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAKAAAAB4AQMAAABPbGssAAAAA1BMVEWZmZl86KQWAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gQIFjciiRhnwgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAZSURBVEjH7cEBDQAAAMKg909tDwcUAAAPBgnYAAHW6F1SAAAAAElFTkSuQmCC";
 
 
   var StatusDisplay = React.createClass({
     propTypes: {
-      numPages: React.PropTypes.number.isRequired,
-      numExpected: React.PropTypes.number,
-      captureStart: React.PropTypes.number
+      numPages: PropTypes.number.isRequired,
+      numExpected: PropTypes.number,
+      captureStart: PropTypes.number
     },
 
     getInitialState: function() {
@@ -92,11 +93,11 @@
     mixins: [LayeredComponentMixin],
 
     propTypes: {
-      targetPage: React.PropTypes.oneOf(["odd", "even"]).isRequired,
-      imageSrc: React.PropTypes.string,
-      cropParams: React.PropTypes.object,
-      onCropParamUpdate: React.PropTypes.func,
-      showCropPreview: React.PropTypes.bool
+      targetPage: PropTypes.oneOf(["odd", "even"]).isRequired,
+      imageSrc: PropTypes.string,
+      cropParams: PropTypes.object,
+      onCropParamUpdate: PropTypes.func,
+      showCropPreview: PropTypes.bool
     },
 
     getInitialState: function() {
@@ -181,9 +182,9 @@
 
   var ConfigModal = React.createClass({
     propTypes: {
-      workflow: React.PropTypes.object.isRequired,
-      onClose: React.PropTypes.func.isRequired,
-      onConfirm: React.PropTypes.func.isRequired
+      workflow: PropTypes.object.isRequired,
+      onClose: PropTypes.func.isRequired,
+      onConfirm: PropTypes.func.isRequired
     },
 
     getInitialState: function() {
@@ -242,9 +243,9 @@
     mixins: [LayeredComponentMixin],
 
     propTypes: {
-      workflow: React.PropTypes.object.isRequired,
-      onConfigUpdate: React.PropTypes.func.isRequired,
-      onFinish: React.PropTypes.func.isRequired
+      workflow: PropTypes.object.isRequired,
+      onConfigUpdate: PropTypes.func.isRequired,
+      onFinish: PropTypes.func.isRequired
     },
 
     getInitialState: function() {
@@ -352,7 +353,7 @@
 
   var ShortcutHelp = React.createClass({
     propTypes: {
-      captureKeys: React.PropTypes.arrayOf(React.PropTypes.string)
+      captureKeys: PropTypes.arrayOf(PropTypes.string)
     },
 
     render: function() {
@@ -381,7 +382,7 @@
    */
   var CaptureScreen = React.createClass({
     propTypes: {
-      workflow: React.PropTypes.object.isRequired
+      workflow: PropTypes.object.isRequired
     },
 
     /** Enables two-way databinding with Backbone model */

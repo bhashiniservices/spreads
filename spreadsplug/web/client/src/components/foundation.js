@@ -21,7 +21,8 @@
   'use strict';
   var React = require('react'),
       classSet = require('classnames'),
-      _ = require('underscore');
+      _ = require('underscore'),
+      PropTypes = require('prop-types');
 
   /**
    * Row component.
@@ -29,13 +30,13 @@
   var Row =  React.createClass({
     propTypes: {
       /** Useful for pre/postfix labels in forms */
-      collapse: React.PropTypes.bool,
+      collapse: PropTypes.bool,
       /** Additional CSS classes */
-      className: React.PropTypes.string,
+      className: PropTypes.string,
       /** Child component(s) */
-      children: React.PropTypes.oneOfType([
-        React.PropTypes.renderable,
-        React.PropTypes.arrayOf(React.PropTypes.renderable)
+      children: PropTypes.oneOfType([
+        PropTypes.renderable,
+        PropTypes.arrayOf(PropTypes.renderable)
       ]),
     },
 
@@ -64,15 +65,15 @@
    */
   var Column = React.createClass({
     propTypes: {
-      size: React.PropTypes.oneOfType([
-        React.PropTypes.number,
-        React.PropTypes.arrayOf(React.PropTypes.number)
+      size: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.arrayOf(PropTypes.number)
       ]),
-      offset: React.PropTypes.oneOfType([
-        React.PropTypes.number,
-        React.PropTypes.arrayOf(React.PropTypes.number)
+      offset: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.arrayOf(PropTypes.number)
       ]),
-      className: React.PropTypes.string
+      className: PropTypes.string
     },
 
     getDefaultProps: function() {
@@ -112,16 +113,16 @@
    */
   var Button = React.createClass({
     propTypes: {
-      size: React.PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
-      secondary: React.PropTypes.bool,
-      expand: React.PropTypes.bool,
-      disabled: React.PropTypes.bool,
-      onClick: React.PropTypes.func,
-      title: React.PropTypes.string,
-      className: React.PropTypes.string,
-      children: React.PropTypes.oneOfType([
-        React.PropTypes.renderable,
-        React.PropTypes.arrayOf(React.PropTypes.renderable)
+      size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
+      secondary: PropTypes.bool,
+      expand: PropTypes.bool,
+      disabled: PropTypes.bool,
+      onClick: PropTypes.func,
+      title: PropTypes.string,
+      className: PropTypes.string,
+      children: PropTypes.oneOfType([
+        PropTypes.renderable,
+        PropTypes.arrayOf(PropTypes.renderable)
       ]),
     },
 
@@ -156,15 +157,15 @@
    */
   var Alert = React.createClass({
     propTypes: {
-      severity: React.PropTypes.oneOf([
+      severity: PropTypes.oneOf([
         'standard', 'success', 'warning', 'info', 'alert', 'secondary'
       ]),
-      onClick: React.PropTypes.func,
-      onClose: React.PropTypes.func,
-      className: React.PropTypes.string,
-      children: React.PropTypes.oneOfType([
-        React.PropTypes.renderable,
-        React.PropTypes.arrayOf(React.PropTypes.renderable)
+      onClick: PropTypes.func,
+      onClose: PropTypes.func,
+      className: PropTypes.string,
+      children: PropTypes.oneOfType([
+        PropTypes.renderable,
+        PropTypes.arrayOf(PropTypes.renderable)
       ])
     },
 
@@ -188,9 +189,9 @@
 
   var PageButton = React.createClass({
     propTypes: {
-      current: React.PropTypes.bool,
-      num: React.PropTypes.number,
-      onClick: React.PropTypes.func
+      current: PropTypes.bool,
+      num: PropTypes.number,
+      onClick: PropTypes.func
     },
 
     render: function() {
@@ -210,9 +211,9 @@
    */
   var Pagination = React.createClass({
     propTypes: {
-      centered: React.PropTypes.bool,
-      pageCount: React.PropTypes.number.isRequired,
-      onBrowse: React.PropTypes.func.isRequired
+      centered: PropTypes.bool,
+      pageCount: PropTypes.number.isRequired,
+      onBrowse: PropTypes.func.isRequired
     },
 
     getDefaultProps: function() {
@@ -300,10 +301,10 @@
    */
   var Modal = React.createClass({
     propTypes: {
-      onClose: React.PropTypes.func,
-      children: React.PropTypes.oneOfType([
-        React.PropTypes.renderable,
-        React.PropTypes.arrayOf(React.PropTypes.renderable)
+      onClose: PropTypes.func,
+      children: PropTypes.oneOfType([
+        PropTypes.renderable,
+        PropTypes.arrayOf(PropTypes.renderable)
       ]),
     },
 
@@ -328,11 +329,11 @@
    */
   var ConfirmModal = React.createClass({
     propTypes: {
-      onCancel: React.PropTypes.func,
-      onConfirm: React.PropTypes.func,
-      children: React.PropTypes.oneOfType([
-        React.PropTypes.renderable,
-        React.PropTypes.arrayOf(React.PropTypes.renderable)
+      onCancel: PropTypes.func,
+      onConfirm: PropTypes.func,
+      children: PropTypes.oneOfType([
+        PropTypes.renderable,
+        PropTypes.arrayOf(PropTypes.renderable)
       ])
     },
 
@@ -355,8 +356,8 @@
 
   var Label = React.createClass({
     propTypes: {
-      round: React.PropTypes.bool,
-      severity: React.PropTypes.oneOf([
+      round: PropTypes.bool,
+      severity: PropTypes.oneOf([
         'standard', 'success', 'warning', 'alert', 'secondary'
       ]),
     },

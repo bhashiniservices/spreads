@@ -31,6 +31,7 @@
       NavigationBar = require('./navbar'),
       LogDisplay = require('./logdisplay.js'),
       Preferences = require('./preferences.js'),
+      PropTypes = require('prop-types'),
       F = require('./foundation');  // Shorthand for Foundation components
 
 
@@ -45,10 +46,10 @@
    */
   var SpreadsApp = React.createClass({
     propTypes: {
-      workflows: React.PropTypes.object.isRequired,
-      workflowSlug: React.PropTypes.string,
-      view: React.PropTypes.string,
-      globalConfig: React.PropTypes.object
+      workflows: PropTypes.object.isRequired,
+      workflowSlug: PropTypes.string,
+      view: PropTypes.string,
+      globalConfig: PropTypes.object
     },
 
     componentWillMount: function() {

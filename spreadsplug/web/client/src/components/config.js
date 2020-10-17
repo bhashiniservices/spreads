@@ -25,7 +25,8 @@
       F = require('./foundation.js'),
       util = require('../util.js'),
       ModelMixin = require('../../vendor/backbonemixin.js'),
-      capitalize = require('../util.js').capitalize;
+      capitalize = require('../util.js').capitalize,
+      PropTypes = require('prop-types');
 
 
   /**
@@ -34,19 +35,19 @@
   var PluginOption = React.createClass({
     propTypes: {
       /** Name of the option */
-      name: React.PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
       /** Current value of the option */
-      value: React.PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.number,
-        React.PropTypes.bool,
+      value: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+        PropTypes.bool,
       ]).isRequired,
       /** Template for the option */
-      option: React.PropTypes.object.isRequired,
+      option: PropTypes.object.isRequired,
       /** Errors from server-side validation for the option */
-      error: React.PropTypes.object,
+      error: PropTypes.object,
       /** Function to be called when value changes */
-      onChange: React.PropTypes.func.isRequired
+      onChange: PropTypes.func.isRequired
     },
 
     render: function() {
@@ -113,15 +114,15 @@
   var ConfigWidget = React.createClass({
     propTypes: {
       /** Whether to show advanced options */
-      showAdvanced: React.PropTypes.bool,
+      showAdvanced: PropTypes.bool,
       /** Current settings for this plugin */
-      cfgValues: React.PropTypes.object.isRequired,
+      cfgValues: PropTypes.object.isRequired,
       /** Template for the settings */
-      template: React.PropTypes.object.isRequired,
+      template: PropTypes.object.isRequired,
       /** Errors from server-side validation */
-      errors: React.PropTypes.object,
+      errors: PropTypes.object,
       /** Function to be called when value changes */
-      onChange: React.PropTypes.func.isRequired
+      onChange: PropTypes.func.isRequired
     },
 
     /** Generate change callback for a given key */
@@ -160,13 +161,13 @@
   var PluginSelector = React.createClass({
     propTypes: {
       /** Type of plugins to select */
-      type: React.PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
       /** List of available plugins of that type */
-      available: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+      available: PropTypes.arrayOf(PropTypes.string).isRequired,
       /** Function to be called when selection changes */
-      onChange: React.PropTypes.func.isRequired,
+      onChange: PropTypes.func.isRequired,
       /** List of enabled plugins of that type */
-      enabled: React.PropTypes.arrayOf(React.PropTypes.string)
+      enabled: PropTypes.arrayOf(PropTypes.string)
     },
 
     render: function() {
@@ -211,9 +212,9 @@
 
   var SectionSelector = React.createClass({
     propTypes: {
-      active: React.PropTypes.bool,
-      onClick: React.PropTypes.func.isRequired,
-      name: React.PropTypes.string.isRequired
+      active: PropTypes.bool,
+      onClick: PropTypes.func.isRequired,
+      name: PropTypes.string.isRequired
     },
 
     render: function() {
@@ -247,17 +248,17 @@
   var Configuration = React.createClass({
     propTypes: {
       /** Available plugins by type */
-      availablePlugins: React.PropTypes.object,
+      availablePlugins: PropTypes.object,
       /** Application default configuration */
-      defaultConfig: React.PropTypes.object,
+      defaultConfig: PropTypes.object,
       /** Current configuration */
-      config: React.PropTypes.object,
+      config: PropTypes.object,
       /** Configuration templates for available plugins */
-      templates: React.PropTypes.object.isRequired,
+      templates: PropTypes.object.isRequired,
       /** Errors from server-side validation */
-      errors: React.PropTypes.object,
+      errors: PropTypes.object,
       /** Allow editing of core options **/
-      enableCore: React.PropTypes.bool
+      enableCore: PropTypes.bool
     },
 
     getDefaultProps: function() {

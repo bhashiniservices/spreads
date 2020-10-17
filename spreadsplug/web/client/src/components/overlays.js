@@ -21,7 +21,8 @@
   'use strict';
   var React = require('react'),
       _ = require('underscore'),
-      Mousetrap = require('mousetrap');
+      Mousetrap = require('mousetrap'),
+      PropTypes = require('prop-types');
 
   /** Create a new "layer" on the page like a modal or overlay
    *
@@ -85,7 +86,7 @@
 
   var Overlay = React.createClass({
     propTypes: {
-      color: React.PropTypes.string
+      color: PropTypes.string
     },
     getDefaultProps: function() {
       return {
@@ -137,11 +138,11 @@
   var LightBox = React.createClass({
     displayName: "LightBox",
     propTypes: {
-      imageUrl: React.PropTypes.string.isRequired,
-      sequenceNumber: React.PropTypes.number,
-      sequenceLength: React.PropTypes.number,
-      onBrowse: React.PropTypes.func,
-      onClose: React.PropTypes.func
+      imageUrl: PropTypes.string.isRequired,
+      sequenceNumber: PropTypes.number,
+      sequenceLength: PropTypes.number,
+      onBrowse: PropTypes.func,
+      onClose: PropTypes.func
     },
     getDefaultProps: function() {
       return {

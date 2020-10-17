@@ -23,23 +23,24 @@
   var _ = require('underscore'),
       React = require('react'),
       util = require('../util.js'),
-      F = require('./foundation.js');
+      F = require('./foundation.js'),
+      PropTypes = require('prop-types');
 
   var CropWidget = React.createClass({
     propTypes: {
       /** Current crop parameters */
-      cropParams: React.PropTypes.object,
+      cropParams: PropTypes.object,
       /** Original, unscaled width of image source */
-      nativeWidth: React.PropTypes.number,
+      nativeWidth: PropTypes.number,
       /** Original, unscaled height of image source */
-      nativeHeight: React.PropTypes.number,
+      nativeHeight: PropTypes.number,
       /** Whether to show input boxes with values below image */
-      showInputs: React.PropTypes.bool,
+      showInputs: PropTypes.bool,
       /** Source image URL */
-      imageSrc: React.PropTypes.string,
+      imageSrc: PropTypes.string,
       /** Function that is called when the user decides to save the crop
        * selection */
-      onSave: React.PropTypes.func
+      onSave: PropTypes.func
     },
 
     getInitialState: function() {

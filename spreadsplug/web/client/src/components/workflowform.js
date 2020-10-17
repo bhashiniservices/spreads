@@ -25,16 +25,17 @@
       F = require('./foundation.js'),
       ModelMixin = require('../../vendor/backbonemixin.js'),
       MetadataEditor = require('./metaeditor.js').MetadataEditor,
-      Configuration = require('./config.js').Configuration;
+      Configuration = require('./config.js').Configuration,
+      PropTypes = require('prop-types');
 
   /**
    * View component for workflow creation
    */
   var WorkflowForm = React.createClass({
     propTypes: {
-      workflow: React.PropTypes.object,
-      isNew: React.PropTypes.bool,
-      globalConfig: React.PropTypes.object
+      workflow: PropTypes.object,
+      isNew: PropTypes.bool,
+      globalConfig: PropTypes.object
     },
 
     /** Enables two-way databinding with Backbone model */
