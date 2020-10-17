@@ -313,7 +313,7 @@
       var dragCorners = ["upper-left", "upper-middle", "upper-right", "middle-left",
                         "middle-right", "lower-left", "lower-middle", "lower-right"],
           hasTouch = util.isTouchDevice(),
-          cx = React.addons.classSet,
+          cx = require('classnames'),
           cropClasses;
       cropClasses = cx({
         'cropbox': true,

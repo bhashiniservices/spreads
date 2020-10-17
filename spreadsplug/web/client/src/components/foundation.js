@@ -20,7 +20,7 @@
 (function() {
   'use strict';
   var React = require('react'),
-      classSet = React.addons.classSet,
+      classSet = require('classnames'),
       _ = require('underscore');
 
   /**

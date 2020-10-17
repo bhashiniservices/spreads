@@ -217,7 +217,7 @@
     },
 
     render: function() {
-      var classes = React.addons.classSet({
+      var classes = require('classnames')({
         "plugin-label": true,
         active: this.props.active
       });

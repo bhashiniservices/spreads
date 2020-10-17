@@ -48,7 +48,7 @@
     },
 
     render: function() {
-      var cx = require('react').addons.classSet,
+      var cx = require('classnames'),
           liClasses = cx({
             'th': true,
             'page-preview': true,
@@ -159,7 +159,7 @@
           pageCount = Math.ceil(pages.length / this.state.thumbCount),
           thumbStart = this.state.thumbStart,
           thumbStop = this.state.thumbStart+this.state.thumbCount,
-          deleteClasses = require('react').addons.classSet({
+          deleteClasses = require('classnames')({
             'small': true,
             'button': true,
             'disabled': this.state.selectedPages.length === 0
@@ -256,7 +256,7 @@
                     else if (outFile.mimetype === "application/pdf") classes['fa-file-pdf-o'] = true;
                     else classes['fa-file'] = true;
                     return (
-                      <li key={outFile.name}><a href={fileUrl}><i className={React.addons.classSet(classes)} /> {outFile.name}</a></li>
+                      <li key={outFile.name}><a href={fileUrl}><i className={require('classnames')(classes)} /> {outFile.name}</a></li>
                     );
                   }, this)}
               </ul>

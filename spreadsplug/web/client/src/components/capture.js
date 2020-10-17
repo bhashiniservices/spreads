@@ -613,7 +613,7 @@
         <div>
           <F.Row>
             <F.Column>
-                <ul className={React.addons.classSet(previewClasses)}>
+                <ul className={require('classnames')(previewClasses)}>
                   <Preview targetPage="even" imageSrc={evenImage}
                     cropParams={this.state.cropParams['even']}
                     onCropParamUpdate={_.partial(this.setCropParams, 'even')}
