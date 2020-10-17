@@ -21,7 +21,7 @@
   'use strict';
 
   var _ = require('underscore'),
-      React = require('react/addons'),
+      React = require('react'),
       util = require('../util.js'),
       F = require('./foundation.js');
 

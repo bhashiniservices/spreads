@@ -19,7 +19,7 @@
 
 (function() {
   'use strict';
-  var React = require('react/addons'),
+  var React = require('react'),
       _ = require('underscore'),
       jQuery = require('jquery'),
       F = require('./foundation.js'),

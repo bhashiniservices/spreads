@@ -23,7 +23,7 @@
   var Backbone = require('backbone'),
       jQuery = require('jquery'),
       Router = require('./router'),
-      React = require('react/addons');
+      React = require('react');
 
   // Load stylesheets
   require('../scss/app.scss');

@@ -20,7 +20,7 @@
 (function() {
   'use strict';
 
-  var React = require('react/addons'),
+  var React = require('react'),
       jQuery = require('jquery'),
       _ = require('underscore'),
       ModelMixin = require('../../vendor/backbonemixin.js'),
@@ -48,7 +48,7 @@
     },
 
     render: function() {
-      var cx = require('react/addons').addons.classSet,
+      var cx = require('react').addons.classSet,
           liClasses = cx({
             'th': true,
             'page-preview': true,
@@ -159,7 +159,7 @@
           pageCount = Math.ceil(pages.length / this.state.thumbCount),
           thumbStart = this.state.thumbStart,
           thumbStop = this.state.thumbStart+this.state.thumbCount,
-          deleteClasses = require('react/addons').addons.classSet({
+          deleteClasses = require('react').addons.classSet({
             'small': true,
             'button': true,
             'disabled': this.state.selectedPages.length === 0

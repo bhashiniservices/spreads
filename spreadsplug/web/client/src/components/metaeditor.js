@@ -19,8 +19,8 @@
 
 (function() {
   'use strict';
-  var React = require('react/addons'),
-      merge = require('react/lib/merge'),
+  var React = require('react'),
+      merge = require('merge'),
       _ = require('underscore'),
       jQuery = require('jquery'),
       F = require('./foundation.js'),

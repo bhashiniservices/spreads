@@ -19,7 +19,7 @@
 
 (function() {
   'use strict';
-  var React = require('react/addons'),
+  var React = require('react'),
       _ = require('underscore'),
       ModelMixin = require('../../vendor/backbonemixin.js'),
       ProgressOverlay = require('./overlays.js').Progress,

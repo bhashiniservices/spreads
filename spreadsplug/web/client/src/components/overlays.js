@@ -19,7 +19,7 @@
 
 (function() {
   'use strict';
-  var React = require('react/addons'),
+  var React = require('react'),
       _ = require('underscore'),
       Mousetrap = require('mousetrap');
 
@@ -66,7 +66,7 @@
       // componentDidUpdate(), you're effectively creating a "wormhole" that
       // funnels React's hierarchical updates through to a DOM node on an
       // entirely different part of the page.
-      React.renderComponent(component, this._layer);
+      ReactDOM.render(component, this._layer);
 
       if (this.layerDidMount) {
         this.layerDidMount(this._layer);

@@ -20,7 +20,6 @@
 (function() {
   'use strict';
   var Backbone = require('backbone'),
-      React = require('react/addons'),
       _ = require('underscore'),
       SpreadsApp = require('./components/spreadsapp'),
       Workflows = require('./workflow.js'),
@@ -85,7 +84,7 @@
      * @param {?string} workflowSlug
      */
     _renderView: function(view, workflowSlug) {
-      React.renderComponent(<SpreadsApp view={view} workflows={this._workflows}
+      ReactDOM.render(<SpreadsApp view={view} workflows={this._workflows}
                                         workflowSlug={workflowSlug} />,
                             document.body);
     },

@@ -1,13 +1,12 @@
 describe("Router", function() {
-  var Router, Workflows, React;
+  var Router, Workflows;
   beforeEach(function() {
     jest.dontMock('../router.js');
     jest.dontMock('jquery');
     var Backbone = require('backbone'),
-        React = require('react/addons'),
         jQuery = require('jquery');
     jQuery.ajax = jest.genMockFn();
-    React.renderComponent = jest.genMockFn();
+    ReactDOM.render = jest.genMockFn();
     Backbone.$ = jQuery;
     Backbone.history.start({pushState: true, root: '/'});
     Workflows = require('../workflow.js');

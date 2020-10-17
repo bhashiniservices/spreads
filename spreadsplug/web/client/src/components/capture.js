@@ -20,7 +20,7 @@
 (function() {
   'use strict';
 
-  var React = require('react/addons'),
+  var React = require('react'),
       _ = require('underscore'),
       Mousetrap = require('mousetrap'),
       F = require('./foundation.js'),

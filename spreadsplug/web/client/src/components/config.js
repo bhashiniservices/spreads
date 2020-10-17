@@ -19,9 +19,9 @@
 
 (function() {
   'use strict';
-  var React = require('react/addons'),
+  var React = require('react'),
       _ = require('underscore'),
-      merge = require('react/lib/merge'),
+      merge = require('merge'),
       F = require('./foundation.js'),
       util = require('../util.js'),
       ModelMixin = require('../../vendor/backbonemixin.js'),

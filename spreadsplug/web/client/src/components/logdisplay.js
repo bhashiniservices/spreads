@@ -20,7 +20,7 @@
 (function() {
   'use strict';
 
-  var React = require('react/addons'),
+  var React = require('react'),
       jQuery = require('jquery'),
       _ = require('underscore'),
       util = require('../util.js'),
