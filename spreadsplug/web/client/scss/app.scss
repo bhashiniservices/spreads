@@ -1,5 +1,5 @@
 @import "settings";
-@import "../node_modules/zurb-foundation/scss/foundation";
+@import "../node_modules/foundation-sites/scss/foundation";
 
 $fa-font-path: "../node_modules/font-awesome/fonts";
 @import "../node_modules/font-awesome/scss/font-awesome";
@@ -63,15 +63,15 @@ $fa-font-path: "../node_modules/font-awesome/fonts";
   }
 
   &.disabled {
-    @include button-style($disabled:true);
+    @include button-disabled;
   }
 
-  &.secondary { @include button-style($bg:$secondary-color); }
+  &.secondary { @include button-style($background:$secondary-color); }
 
-  &.complete { @include button-style($bg:$success-color); }
+  &.complete { @include button-style($background:$success-color); }
 
   &.dropdown {
-    @include dropdown-button();
+    @include button-dropdown();
     margin-bottom: 0;
   }
 
@@ -245,7 +245,7 @@ li.page-preview {
     background-color: $warning-color;
   }
   &.info {
-    background-color: $info-color;
+    background-color: $warning-color;
   }
   td {
     word-break: break-all;
