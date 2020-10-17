@@ -5,20 +5,17 @@ module.exports = {
   cache: true,
   entry: './src/main.js',
   output: {
-    path: path.join(__dirname, "build"),
+    path: path.resolve(__dirname, "build"),
     filename: "bundle.js",
     publicPath: "/static/"
   },
   module: {
-    loaders: [
-      {test: /\.js$/, loader: 'jsx-loader?harmony'},
-      {test: /\.css$/, loader: 'style!css'},
-      {test: /\.scss$/, loader: "style!css!sass"},
-      {test: /\.(ttf|svg|eot|woff|png|jpg)$/, loader: "file-loader"}
+    rules: [
+      {test: /\.js$/, use: {loader: 'jsx-loader?harmony'}},
+      {test: /\.css$/, use: [{loader: 'style-loader'}, {loader: 'css-loader'}]},
+      {test: /\.scss$/, use: [{loader: 'style-loader'}, {loader: 'css-loader'}, {loader: 'sass-loader'}]},
+      {test: /\.(ttf|svg|eot|woff|png|jpg)$/, use: 'file-loader'}
     ]
   },
-  plugins: [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin()
-  ]
+  mode: 'production'
 }

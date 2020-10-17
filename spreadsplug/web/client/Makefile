@@ -1,18 +1,18 @@
 WEBPACK_BIN=./node_modules/.bin/webpack
 JEST_BIN=./node_modules/.bin/jest
 
-all: test development production
+all: production
 
 clean:
 	rm -rf node_modules build
 
 node_modules:
 	@echo Installing dependencies
-	@npm install --silent
+	@npm install
 
 production: node_modules
 	@echo Building minified production package
-	@$(WEBPACK_BIN) -p --progress > /dev/null
+	@$(WEBPACK_BIN)
 
 development: node_modules
 	@echo Building development package with source map
