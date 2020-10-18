@@ -23,7 +23,8 @@
   var Backbone = require('backbone'),
       jQuery = require('jquery'),
       Router = require('./router'),
-      React = require('react');
+      React = require('react'),
+      Foundation = require('foundation-sites/dist/js/foundation.cjs.js');
 
   // Load stylesheets
   require('../scss/app.scss');
