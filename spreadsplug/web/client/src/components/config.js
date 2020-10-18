@@ -22,7 +22,7 @@
   var React = require('react'),
       _ = require('underscore'),
       merge = require('merge'),
-      F = require('./foundation.js'),
+      F = require('foundation-sites/dist/js/foundation.cjs.js'),
       util = require('../util.js'),
       ModelMixin = require('../../vendor/backbonemixin.js'),
       capitalize = require('../util.js').capitalize,

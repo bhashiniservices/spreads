@@ -22,7 +22,7 @@
   var React = require('react'),
       _ = require('underscore'),
       jQuery = require('jquery'),
-      F = require('./foundation.js'),
+      F = require('foundation-sites/dist/js/foundation.cjs.js'),
       LayeredComponentMixin = require('./overlays.js').LayeredComponentMixin,
       Overlay = require('./overlays.js').Overlay,
       createClass = require('create-react-class');

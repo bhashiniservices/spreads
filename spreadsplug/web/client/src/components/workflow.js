@@ -24,7 +24,7 @@
       jQuery = require('jquery'),
       _ = require('underscore'),
       ModelMixin = require('../../vendor/backbonemixin.js'),
-      F = require('./foundation.js'),
+      F = require('foundation-sites/dist/js/foundation.cjs.js'),
       Lightbox = require('./overlays.js').LightBox,
       Overlay = require('./overlays.js').Overlay,
       LayeredComponentMixin = require('./overlays.js').LayeredComponentMixin,

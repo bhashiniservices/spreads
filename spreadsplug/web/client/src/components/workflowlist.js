@@ -25,7 +25,7 @@
       ProgressOverlay = require('./overlays.js').Progress,
       Overlay = require('./overlays.js').Overlay,
       LayeredComponentMixin = require('./overlays.js').LayeredComponentMixin,
-      F = require('./foundation.js'),
+      F = require('foundation-sites/dist/js/foundation.cjs.js'),
       util = require('../util.js'),
       PropTypes = require('prop-types'),
       createClass = require('create-react-class');

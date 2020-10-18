@@ -23,7 +23,7 @@
   var React = require('react'),
       _ = require('underscore'),
       Mousetrap = require('mousetrap'),
-      F = require('./foundation.js'),
+      F = require('foundation-sites/dist/js/foundation.cjs.js'),
       ModelMixin = require('../../vendor/backbonemixin.js'),
       Overlay = require('./overlays.js').Overlay,
       LoadingAnimation = require('./overlays.js').Activity,

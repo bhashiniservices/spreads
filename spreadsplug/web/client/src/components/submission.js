@@ -22,7 +22,7 @@
   var React = require('react'),
       _ = require('underscore'),
       jQuery = require('jquery'),
-      F = require('./foundation.js'),
+      F = require('foundation-sites/dist/js/foundation.cjs.js'),
       util = require('../util.js'),
       ProgressOverlay = require('./overlays.js').Progress,
       Overlay = require('./overlays.js').Overlay,
