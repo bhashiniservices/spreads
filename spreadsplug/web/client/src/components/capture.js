@@ -23,7 +23,6 @@
   var React = require('react'),
       _ = require('underscore'),
       Mousetrap = require('mousetrap'),
-      F = require('foundation-sites/dist/js/foundation.cjs.js'),
       ModelMixin = require('../../vendor/backbonemixin.js'),
       Overlay = require('./overlays.js').Overlay,
       LoadingAnimation = require('./overlays.js').Activity,
@@ -171,11 +170,11 @@
           {this.state.displayLightbox &&
             <lightbox onClose={this.toggleLightbox} imageUrl={imageSrc} />}
           {this.state.displayCrop &&
-            <F.Modal onClose={this.toggleCropDisplay}>
+            <div className="reveal" id="previewModal" data-reveal onClose={this.toggleCropDisplay}>
               <CropWidget imageSrc={imageSrc}
                           onSave={this.handleSave}
                           cropParams={this.props.cropParams} showInputs={true} />
-            </F.Modal>}
+            </div>}
         </Overlay>);
     }
   });
@@ -217,7 +216,7 @@
     render: function() {
       return (
         <form onSubmit={this.handleSubmit}>
-          <F.ConfirmModal onCancel={this.props.onClose}
+          <div className="reveal" id="ConfigModal1" data-reveal onCancel={this.props.onClose}
                           onConfirm={this.handleSubmit}>
             <h2>Configure Devices</h2>
             <input id="check-advanced" type="checkbox"
@@ -233,7 +232,7 @@
                             config.device = vals;
                             this.props.workflow.set('config', config);
                           }.bind(this)} />
-          </F.ConfirmModal>
+          </div>
         </form>
       );
     }
@@ -309,27 +308,27 @@
           <div className="cell capture-controls">
             <ul>
               <li id="retake-capture">
-                <F.Button title="Discard last capture and take a new one"
-                          onClick={this.handleRetake} secondary={true}>
+                <button type="button" className="button secondary" title="Discard last capture and take a new one"
+                    onClick={this.handleRetake}>
                   <i className="fa fa-refresh"></i>
-                </F.Button>
+                </button>
               </li>
               <li id="trigger-capture">
-                <F.Button title="Trigger capture" onClick={this.handleCapture}>
+                <button type="button" className="button" title="Trigger capture" onClick={this.handleCapture}>
                   <i className="fa fa-camera"></i>
-                </F.Button>
+                </button>
               </li>
               <li>
-                <F.Button title="Configure devices" onClick={this.toggleConfigModal}
-                          secondary={true}>
+                <button type="button" className="button secondary" title="Configure devices" 
+                    onClick={this.toggleConfigModal}>
                   <i className="fa fa-gear"></i>
-                </F.Button>
+                </button>
               </li>
               <li>
-                <F.Button title="Finish capture and return to workflow list"
+                <button type="button" className="button" title="Finish capture and return to workflow list"
                           onClick={this.props.onFinish} className="complete">
                   <i className="fa fa-check"></i>
-                </F.Button>
+                </button>
               </li>
             </ul>
           </div>
@@ -649,15 +648,15 @@
         }.bind(this);
         return (
           <Overlay>
-            <F.Modal onClose={this.state.errorIsCritical ? leave : closeModal}>
+            <div className="reveal" id="captutreScreenModal" data-reveal onClose={this.state.errorIsCritical ? leave : closeModal}>
               <h2>Error</h2>
               <p>
                 {_.flatten(_.map(this.state.lastError.message.split('\n'), function(part) {
                   return [part, <br/>];
                   }))}
               </p>
-              <F.Button onClick={this.state.errorIsCritical ? leave : closeModal}>OK</F.Button>
-            </F.Modal>
+              <button type="button" className="button" onClick={this.state.errorIsCritical ? leave : closeModal}>OK</button>
+            </div>
           </Overlay>);
       } else if (this.state.waiting) {
         return (
