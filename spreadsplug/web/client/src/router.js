@@ -87,7 +87,7 @@
     _renderView: function(view, workflowSlug) {
       ReactDOM.render(<SpreadsApp view={view} workflows={this._workflows}
                                         workflowSlug={workflowSlug} />,
-                            document.body);
+                            document.getElementById('spreadsroot'));
     },
 
     root: function() {
