@@ -22,7 +22,6 @@
   var React = require('react'),
       _ = require('underscore'),
       merge = require('merge'),
-      F = require('foundation-sites/dist/js/foundation.cjs.js'),
       ModelMixin = require('../../vendor/backbonemixin.js'),
       MetadataEditor = require('./metaeditor.js').MetadataEditor,
       Configuration = require('./config.js').Configuration,
@@ -103,11 +102,11 @@
       return (
         <section>
           <form>
-            <F.Row>
-              <F.Column>
+            <div className="grid-x">
+              <div className="cell">
                 <h2>{this.props.isNew ? 'Create workflow' : 'Edit workflow'}</h2>
-              </F.Column>
-            </F.Row>
+              </div>
+            </div>
             <MetadataEditor ref="metadata" metadata={this.props.workflow.get('metadata')}
                             errors={this.state.errors.metadata}/>
             <Configuration ref="config"
@@ -115,14 +114,14 @@
                            errors={this.state.errors || {}}
                            templates={_.omit(window.configTemplates, 'core', 'web')}
                            defaultConfig={this.props.globalConfig}/>
-            <F.Row>
-              <F.Column>
-                <F.Button size='small' disabled={this.state.submitting}
-                          onClick={this.handleSave}>
-                    <i className="fa fa-check"/> Submit
-                </F.Button>
-                </F.Column>
-            </F.Row>
+            <div className="grid-x">
+              <div className="cell">
+                <button type="button" className="button small" disabled={this.state.submitting}
+                    onClick={this.handleSave}>
+                  <i className="fa fa-check"/> Submit
+                </button>
+                </div>
+            </div>
           </form>
         </section>
       );

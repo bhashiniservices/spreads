@@ -63,8 +63,8 @@
       return (
         <li className={liClasses} title="Open full resolution image in lightbox"
             onMouseEnter={this.toggleToolbar} onMouseLeave={this.toggleToolbar}>
-          <F.Row>
-            <F.Column>
+          <div className="grid-x">
+            <div className="cell">
               <a onClick={this.props.selectCallback}
                  title={this.props.selected ? "Deselect image" : "Select image"}>
                 <img src={thumbUrl} />
@@ -72,13 +72,13 @@
               {this.state.displayToolbar &&
               <a onClick={this.props.lightboxCallback}
                  className="toggle-zoom fa fa-search-plus" />}
-            </F.Column>
-          </F.Row>
-          <F.Row>
-            <F.Column>
+            </div>
+          </div>
+          <div className="grid-x">
+            <div className="cell">
               {page.page_label}
-            </F.Column>
-          </F.Row>
+            </div>
+          </div>
         </li>);
     }
   });
@@ -174,13 +174,13 @@
           }
       return (
         <main>
-          <F.Row>
-            <F.Column>
+          <div className="grid-x">
+            <div className="cell">
               <h1>{metadata.title}</h1>
-            </F.Column>
-          </F.Row>
-          <F.Row className="metadata-view">
-            <F.Column>
+            </div>
+          </div>
+          <div className="grid-x metadata-view">
+            <div className="cell">
               <h2>Metadata</h2>
               {_.map(window.metadataSchema, function(field) {
                 if (!_.has(metadata, field.key)) return;
@@ -197,38 +197,38 @@
                   valueNode = value;
                 }
                 return (
-                  <F.Row key={field.key}>
-                    <F.Column size={[4, 2]}>{field.description}</F.Column>
-                    <F.Column size={[8, 10]}>{valueNode}</F.Column>
-                  </F.Row>);
+                  <div className="grid-x" key={field.key}>
+                    <div className="cell small-4 medium-2">{field.description}</div>
+                    <div className="cell small-8 medium-10">{valueNode}</div>
+                  </div>);
                 })}
-            </F.Column>
-          </F.Row>
+            </div>
+          </div>
 
           {/* Only show image thumbnails when there are images in the workflow */}
           {pages.length > 0 &&
           <section>
-            <F.Row>
-              <F.Column>
+            <div className="grid-x">
+              <div className="cell">
                 <h2>Pages</h2>
-              </F.Column>
-            </F.Row>
-            <F.Row>
-              <F.Column size={[6, 8]}>
+              </div>
+            </div>
+            <div className="grid-x">
+              <div className="cell small-6 medium-8">
                 <F.Button onClick={this.bulkDelete} size="small"
                           className={deleteClasses} title="Delete">
                   <i className="fa fa-trash-o" />
                 </F.Button>
-              </F.Column>
-              <F.Column size={[4, 2]} offset={2}>
+              </div>
+              <div className="cell small-4 medium-2" offset={2}>
                 <select className="format-select"
                         onChange={this.handleImageTypeSelect}>
                   {imageTypes.map(function(name) {
                     return <option key={name} value={name}>{name}</option>;
                   })}
                 </select>
-              </F.Column>
-            </F.Row>
+              </div>
+            </div>
                 <ul ref="pagegrid" className="pagegrid small-block-grid-2 medium-block-grid-4 large-block-grid-6">
                   {pages.slice(thumbStart, thumbStop).map(function(page) {
                       return (
@@ -244,8 +244,8 @@
 
           {/* Only show output file list if there are output files in the workflow */}
           {!_.isEmpty(workflow.get('out_files')) &&
-          <F.Row>
-            <F.Column>
+          <div className="grid-x">
+            <div className="cell">
               <h2>Output files</h2>
               <ul ref="outputlist" className="fa-ul">
                 {_.map(workflow.get('out_files'), function(outFile) {
@@ -262,8 +262,8 @@
                     );
                   }, this)}
               </ul>
-            </F.Column>
-          </F.Row>}
+            </div>
+          </div>}
         </main>
       );
     },

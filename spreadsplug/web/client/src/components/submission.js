@@ -174,14 +174,14 @@
       return (
         <section>
           <form onSubmit={this.handleSubmit}>
-            <F.Row>
-              <F.Column>
+            <div className="grid-x">
+              <div className="cell">
                 <h2>Configure postprocessing</h2>
-              </F.Column>
-            </F.Row>
+              </div>
+            </div>
             {this.state.availableServers.length > 0 &&
-            <F.Row>
-              <F.Column size={[12,9]}>
+            <div className="grid-x">
+              <div className="cell medium-9">
                 <label className={this.state.errors.server ? 'error': ''}>
                   Select postprocessing server
                   <select onChange={this.handleServerSelect}
@@ -191,12 +191,12 @@
                     })}
                   </select>
                 </label>
-              </F.Column>
-            </F.Row>}
-            <F.Row>
-              <F.Column size={[12, 9]}>
-                <F.Row collapse={true}>
-                  <F.Column size={[9,10]}>
+              </div>
+            </div>}
+            <div className="grid-x">
+              <div className="lcell medium-9">
+                <div className="grid-x" collapse={true}>
+                  <div className="cell small-9 medium-10">
                     <input type="text" placeholder="Custom server address"
                           className={this.state.errors.server ? 'error': ''}
                           onKeyUp={function(e){
@@ -206,13 +206,13 @@
                           onBlur={this.handleServerSelect} />
                     {this.state.errors.server &&
                     <small className="error">{this.state.errors.server}</small>}
-                  </F.Column>
-                  <F.Column size={[3, 2]}>
+                  </div>
+                  <div className="cell small-3 medium-2">
                     <a className="button postfix"><i className="fa fa-refresh"/> {!util.isSmall() && 'Refresh'}</a>
-                  </F.Column>
-                </F.Row>
-              </F.Column>
-            </F.Row>
+                  </div>
+                </div>
+              </div>
+            </div>
             {this.state.selectedServer && this.props.workflow &&
              !_.isEmpty(this.state.configTemplates) &&
             <div>
@@ -222,13 +222,13 @@
                              templates={this.state.configTemplates}
                              availablePlugins={this.state.availablePlugins}
                              defaultConfig={this.state.remoteConfig} />
-              <F.Row>
-                <F.Column size={[12,9]}>
+              <div className="grid-x">
+                <div className="cell medium-9">
                   <button className={_.isEmpty(this.state.errors) ? '': 'disabled'}>
                     Submit
                   </button>
-                </F.Column>
-              </F.Row>
+                </div>
+              </div>
             </div>}
           </form>
         </section>);

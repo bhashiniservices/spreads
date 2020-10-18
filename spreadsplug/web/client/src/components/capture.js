@@ -68,22 +68,22 @@
       return (
         <div>
           {this.props.numExpected > 0 &&
-          <F.Row>
-            <F.Column>
+          <div className="grid-x">
+            <div className="cell">
               <div className="nice secondary progress">
                 <span className="meter" style={{width: progress*100+'%'}} />
               </div>
-            </F.Column>
-          </F.Row>}
-          <F.Row className="capture-info">
-            <F.Column size={6}>
+            </div>
+          </div>}
+          <div className="grid-x capture-info">
+            <div className="cell small-6">
               <span className="pagecount">{this.props.numPages} pages</span>
-            </F.Column>
+            </div>
             {speed > 0 &&
-            <F.Column size={6}>
+            <div className="cell small-6">
               <span className="capturespeed">{speed} pages/hour</span>
-            </F.Column>}
-          </F.Row>
+            </div>}
+          </div>
         </div>
       );
     }
@@ -305,8 +305,8 @@
 
     render: function() {
       return (
-        <F.Row>
-          <F.Column className="capture-controls">
+        <div className="grid-x">
+          <div className="cell capture-controls">
             <ul>
               <li id="retake-capture">
                 <F.Button title="Discard last capture and take a new one"
@@ -332,8 +332,8 @@
                 </F.Button>
               </li>
             </ul>
-          </F.Column>
-        </F.Row>
+          </div>
+        </div>
       );
     },
 
@@ -360,8 +360,8 @@
     render: function() {
       if (util.isTouchDevice()) return null;
       return (
-        <F.Row className="hide-for-touch">
-          <F.Column size={4} offset={4} className="shortcuts">
+        <div className="grid-x hide-for-touch">
+          <div className="cell small-4 small-offset-4 shortcuts">
             <strong>Keyboard shortcuts:</strong>
             <ul>
               <li>Capture:
@@ -371,8 +371,8 @@
               <li>Retake: <kbd>R</kbd></li>
               <li>Finish: <kbd>F</kbd></li>
             </ul>
-          </F.Column>
-        </F.Row>
+          </div>
+        </div>
       );
     }
   });
@@ -613,8 +613,8 @@
 
       return (
         <div>
-          <F.Row>
-            <F.Column>
+          <div className="grid-x">
+            <div className="cell">
                 <ul className={require('classnames')(previewClasses)}>
                   <Preview targetPage="even" imageSrc={evenImage}
                     cropParams={this.state.cropParams['even']}
@@ -625,8 +625,8 @@
                     onCropParamUpdate={_.partial(this.setCropParams, 'odd')}
                     showCropPreview={this.state.captureStart > 0}/>
               </ul>
-            </F.Column>
-          </F.Row>
+            </div>
+          </div>
           <StatusDisplay numPages={this.props.workflow.get('pages').length}
                          numExpected={this.props.workflow.get('metadata').extent | 0}
                          captureStart={this.state.captureStart} />

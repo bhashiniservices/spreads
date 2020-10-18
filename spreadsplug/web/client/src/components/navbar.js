@@ -62,17 +62,17 @@
     render: function() {
       return (
         <F.Modal onClose={this.props.onClose}>
-          <F.Row><F.Column><h1>Shutdown/Reboot</h1></F.Column></F.Row>
-          <F.Row><F.Column><p>Do you really want to shut down the device?</p></F.Column></F.Row>
-          <F.Row><F.Column><p><strong>If you do, please make sure that you turn off your devices before confirming!</strong></p></F.Column></F.Row>
-          <F.Row>
-            <F.Column size={6}>
+          <div className="grid-x"><div className="cell"><h1>Shutdown/Reboot</h1></div></div>
+          <div className="grid-x"><div className="cell"><p>Do you really want to shut down the device?</p></div></div>
+          <div className="grid-x"><div className="cell"><p><strong>If you do, please make sure that you turn off your devices before confirming!</strong></p></div></div>
+          <div className="grid-x">
+            <div className="cell small-6">
               <F.Button onClick={this.doShutdown} size="small"><i className="fa fa-power-off" /> Shutdown</F.Button>
-            </F.Column>
-            <F.Column size={6}>
+            </div>
+            <div className="cell small-6">
               <F.Button onClick={this.doReboot} size="small"><i className="fa fa-refresh" /> Reboot</F.Button>
-            </F.Column>
-          </F.Row>
+            </div>
+          </div>
         </F.Modal>
       );
     },
@@ -96,19 +96,19 @@
 
       return (
         <F.Modal small={false} onClose={this.props.onClose}>
-          <F.Row>
-            <F.Column>
+          <div className="grid-x">
+            <div className="cell">
               <img src={logoUrl} className="about-logo" />
-            </F.Column>
-          </F.Row>
-          <F.Row>
-            <F.Column>
+            </div>
+          </div>
+          <div className="grid-x">
+            <div className="cell">
               <p>Version {window.spreadsVersion}</p>
               <p>Licensed under the terms of the <a data-bypass={true} href="https://github.com/DIYBookScanner/spreads/blob/master/LICENSE.txt">GNU Affero General Public License 3.0</a>.</p>
               <p>&copy; 2013-2014 Johannes Baiter <a data-bypass={true} href="mailto:johannes.baiter@gmail.com">&lt;johannes.baiter@gmail.com&gt;</a></p>
               <p>For a full list of contributors, please consult <a data-bypass={true} href="https://github.com/DIYBookScanner/spreads/graphs/contributors">GitHub</a></p>
-            </F.Column>
-          </F.Row>
+            </div>
+          </div>
         </F.Modal>);
     }
   });

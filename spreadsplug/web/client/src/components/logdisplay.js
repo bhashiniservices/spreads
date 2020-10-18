@@ -66,40 +66,40 @@
       bugreportTemplate = "```\n" + this.props.traceback + "\n```";
       return (
         <F.Modal onClose={this.props.onClose}>
-          <F.Row>
-            <F.Column>
+          <div className="grid-x">
+            <div className="cell">
               <h3>This should not have happened.</h3>
-            </F.Column>
-          </F.Row>
-          <F.Row>
-            <F.Column>
+            </div>
+          </div>
+          <div className="grid-x">
+            <div className="cell">
               <pre className="traceback">
                 {this.props.traceback}
               </pre>
-            </F.Column>
-          </F.Row>
-          <F.Row>
-            <F.Column size={6}>
+            </div>
+          </div>
+          <div className="grid-x">
+            <div className="cell small-6">
               <a className="action-button"
                  data-bypass={true}
                  href={"https://github.com/DIYBookScanner/spreads/search?q=" +
                        exception + "&type=Issues"}
                   target="_blank"><i className="fa fa-search"/> Search for open issues</a>
-            </F.Column>
-            <F.Column size={6}>
+            </div>
+            <div className="cell small-6">
               <a className="action-button"
                  data-bypass={true}
                   href={"https://github.com/DIYBookScanner/spreads/issues/new" +
                         "?title=" + encodeURIComponent(exception) +
                         "&body=" + encodeURIComponent(bugreportTemplate) }
                   target="_blank"><i className="fa fa-github"/> Open new issue</a>
-            </F.Column>
-          </F.Row>
-          <F.Row>
-            <F.Column size={6} offset={6}>
+            </div>
+          </div>
+          <div className="grid-x">
+            <div className="cell small-6 small-offset-6">
               <a data-bypass={true} href="http://github.com/join" target="_blank">Don't have an account?</a>
-            </F.Column>
-          </F.Row>
+            </div>
+          </div>
         </F.Modal>
       );
     }
@@ -248,14 +248,14 @@
         </label>);
       return (
         <main>
-          <F.Row>
-            <F.Column>
+          <div className="grid-x">
+            <div className="cell">
               <h1>Application Log</h1>
-            </F.Column>
-          </F.Row>
-          <F.Row>
-            {!isSmall && <F.Column size={2}>{levelLabel}</F.Column>}
-            <F.Column size={[4, 2]}>
+            </div>
+          </div>
+          <div className="grid-x">
+            {!isSmall && <div className="cell small-2">{levelLabel}</div>}
+            <div className="cell small-4 medium-2">
               {isSmall && levelLabel}
               <select id="loglevel" defaultValue="info" onChange={this.handleSetLevel}>
                 <option value="error">Error</option>
@@ -263,9 +263,9 @@
                 <option value="info">Info</option>
                 <option value="debug">Debug</option>
               </select>
-            </F.Column>
-            {!isSmall && <F.Column size={2}>{numLabel}</F.Column>}
-            <F.Column size={[4, 2]}>
+            </div>
+            {!isSmall && <div className="cell small-2">{numLabel}</div>}
+            <div className="cell small-4 medium-2">
               {isSmall && numLabel}
               <select id="msgCount" defaultValue="25" onChange={this.handleSetCount}>
                 <option value="10">10</option>
@@ -273,15 +273,15 @@
                 <option value="50">50</option>
                 <option value="100">100</option>
               </select>
-            </F.Column>
-            <F.Column size={[4, 2]}>
+            </div>
+            <div className="cell small-4 medium-2">
               <a className="action-button small download-btn" title="Download log"
                  data-bypass={true} href={"/api/log?level=debug&count=100"}
                  download="spreadslog.json"><i className="fa fa-download" /></a>
-            </F.Column>
-          </F.Row>
-          <F.Row>
-            <F.Column>
+            </div>
+          </div>
+          <div className="grid-x">
+            <div className="cell">
               <table className="logtable">
                 <thead>
                   <tr>
@@ -303,8 +303,8 @@
                               pageCount={Math.ceil(this.state.totalMessages/this.state.msgCount)}
                               onBrowse={this.handleChangePage} />
               }
-            </F.Column>
-          </F.Row>
+            </div>
+          </div>
         </main>
       );
     }

@@ -73,17 +73,17 @@
       return (
         <section>
           <form>
-            <F.Row><F.Column><h2>Preferences</h2></F.Column></F.Row>
+            <div className="grid-x"><div className="cell"><h2>Preferences</h2></div></div>
                 <Configuration ref="config" config={this.props.globalConfig}
                                errors={this.props.errors} enableCore={true}
                                templates={window.configTemplates} />
-            <F.Row>
-              <F.Column>
+            <div className="grid-x">
+              <div className="cell">
                 <F.Button size='small' onClick={this.handleSave}>
                   <i className="fa fa-check"> Save</i>
                 </F.Button>
-              </F.Column>
-            </F.Row>
+              </div>
+            </div>
           </form>
         </section>
       );
@@ -97,28 +97,28 @@
       return (
         <Overlay>
           <F.Modal onClose={closeModal}>
-            <F.Row>
-              <F.Column><h1>Restart required</h1></F.Column>
-            </F.Row>
-            <F.Row>
-              <F.Column><p>
+            <div className="grid-x">
+              <div className="cell"><h1>Restart required</h1></div>
+            </div>
+            <div className="grid-x">
+              <div className="cell"><p>
                 You seem to have made changes to either the <strong>core</strong>
                 or <strong>web</strong> settings. This makes it neccessary to restart
                 the application. Please make sure that nobody else is using the scanner at
                 the moment.</p>
               <p>It is also strongly advised to <strong>refresh the page</strong> if you
                  have made any changes to the <strong>web</strong> configuration.
-              </p></F.Column>
-            </F.Row>
-            <F.Row>
-              <F.Column size={6}>
+              </p></div>
+            </div>
+            <div className="grid-x">
+              <div className="cell small-6">
                 <F.Button onClick={function(){ this.doSave(true); closeModal(); }.bind(this)}
                           size="small">OK</F.Button>
-              </F.Column>
-              <F.Column size={6}>
+              </div>
+              <div className="cell small-6">
                 <F.Button onClick={closeModal} size="small">Cancel</F.Button>
-              </F.Column>
-            </F.Row>
+              </div>
+            </div>
           </F.Modal>
         </Overlay>
       );

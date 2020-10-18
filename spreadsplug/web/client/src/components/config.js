@@ -20,9 +20,10 @@
 (function() {
   'use strict';
   var React = require('react'),
+      ReactDOM = require('react-dom'),
       _ = require('underscore'),
       merge = require('merge'),
-      F = require('foundation-sites/dist/js/foundation.cjs.js'),
+      F = require('./foundation.js'),
       util = require('../util.js'),
       ModelMixin = require('../../vendor/backbonemixin.js'),
       capitalize = require('../util.js').capitalize,
@@ -90,20 +91,20 @@
       var isCheckbox = input.props.type === 'checkbox';
 
       return (
-        <F.Row>
+        <div className="grid-x">
         {input && input.props.type === 'checkbox' &&
           <div>
-            <F.Column size={1}>{input}</F.Column>
-            <F.Column size={11}>{label}</F.Column>
+            <div className="cell small-1">{input}</div>
+            <div className="cell small-11">{label}</div>
           </div>}
         {input && input.props.type !== 'checkbox' &&
-          <F.Column>
+          <div className="cell">
             <label htmlFor={name}>
               {option.docstring || capitalize(name)}
               {input}{error}
             </label>
-          </F.Column>}
-        </F.Row>
+          </div>}
+        </div>
       );
     }
   });
@@ -175,37 +176,37 @@
       var checkboxes = _.map(this.props.available, function(plugin) {
         var key = 'toggle-' + plugin;
         return (
-          <F.Row key={key}>
-            <F.Column>
+          <div className="grid-x" key={key}>
+            <div className="cell">
               <input id={key} type="checkbox"
                     checked={_.contains(this.props.enabled, plugin)}
                     onChange={function(e){
                         this.props.onChange(e.target.checked, plugin);
                     }.bind(this)} />
               <label htmlFor={key}> {plugin} </label>
-            </F.Column>
-          </F.Row>);
+            </div>
+          </div>);
       }, this);
       var selectLabel = <label>Select {this.props.type} plugins</label>;
 
       if (util.isSmall()) {
         return (
           <div className="plugin-select">
-            <F.Row className="plugin-select-label">
-              <F.Column>{selectLabel}</F.Column>
-            </F.Row>
+            <div className="grid-x plugin-select-label">
+              <div className="cell">{selectLabel}</div>
+            </div>
             {checkboxes}
           </div>);
       } else {
         return (
-          <F.Row className="plugin-select">
-            <F.Column className="plugin-select-label" size={3}>
+          <div className="grid-x plugin-select-label">
+            <div className="cell small-3 columns plugin-select-label">
               {selectLabel}
-            </F.Column>
-            <F.Column size={9} className="select-pane">
+            </div>
+            <div className="cell small-9 select-pane">
               {checkboxes}
-            </F.Column>
-          </F.Row>);
+            </div>
+          </div>);
       }
     }
   });
@@ -224,8 +225,8 @@
         active: this.props.active
       });
       return (
-        <F.Row>
-          <F.Column>
+        <div className="grid-x">
+          <div className="cell">
             <a onClick={this.props.onClick}>
               <label className={classes}>
                 {capitalize(this.props.name)}
@@ -235,8 +236,8 @@
                     className="fa fa-caret-right right" />}
               </label>
             </a>
-          </F.Column>
-        </F.Row>);
+          </div>
+        </div>);
     }
   });
 
@@ -374,12 +375,12 @@
 
       var isSmall = util.isSmall();
       var sectionPicker;
-      var paneContainer = isSmall ? F.Row : React.DOM.div;
-      var outerContainer = isSmall ? React.DOM.div : F.Row;
+      var paneContainer = ReactDOM.div;
+      var outerContainer = ReactDOM.div;
       if (util.isSmall()) {
         sectionPicker = (
-          <F.Row className="section-picker">
-            <F.Column>
+          <div className="grid-x section-picker">
+            <div className="cell">
               <select multiple={false} value={selectedSection}
                       onChange={function(e) {
                         this.setState({selectedSection: e.target.value});
@@ -389,24 +390,24 @@
                 })}
               </select>
               <div><i className="fa fa-caret-down down" /></div>
-            </F.Column>
-          </F.Row>
+            </div>
+          </div>
         );
       } else {
         sectionPicker = (
-          <F.Column size={3} className="section-picker">
+          <div className="cell small-3 section-picker">
             {_.map(configSections, function(section) {
               return (
               <SectionSelector key={section} active={selectedSection === section} name={section}
                                onClick={_.partial(this.setState.bind(this), {selectedSection: section}, null)} />);
             }, this)}
-          </F.Column>
+          </div>
         )
       }
 
       return (
-        <F.Row>
-          <F.Column size={[12, 10, 8]}>
+        <div className="grid-x">
+          <div className="cell medium-10 large-8">
             <fieldset className="config">
               <legend>Configuration</legend>
               {!_.isEmpty(availablePlugins.postprocessing) &&
@@ -419,27 +420,27 @@
                                 available={availablePlugins.output}
                                 enabled={config.plugins}
                                 onChange={this.handlePluginToggle} />}
-              <F.Row className="toggle-advanced">
-                <F.Column>
+              <div className="grid-x toggle-advanced">
+                <div className="cell">
                   <input id="check-advanced" type="checkbox" value={this.state.advancedOpts}
                           onChange={this.toggleAdvanced} />
                   <label htmlFor="check-advanced">Show advanced options</label>
-                </F.Column>
-              </F.Row>
+                </div>
+              </div>
               <outerContainer className="plugin-config">
                 {sectionPicker}
                 <paneContainer>
-                  <F.Column size={[12, 9]} className="config-pane">
+                  <div className="cell medium-9 config-pane">
                     <ConfigWidget template={_.pick(templates[selectedSection], this.shouldDisplayOption)}
                                   cfgValues={this.state.config[selectedSection] || this.getDefaultConfig(selectedSection)}
                                   errors={errors[selectedSection] || {}}
                                   onChange={_.partial(this.handleChange, selectedSection)} />
-                  </F.Column>
+                  </div>
                 </paneContainer>
               </outerContainer>
             </fieldset>
-          </F.Column>
-        </F.Row>);
+          </div>
+        </div>);
     }
   });
 

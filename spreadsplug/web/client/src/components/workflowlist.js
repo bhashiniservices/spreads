@@ -191,8 +191,8 @@
           outputBusy = (step === 'output' && progress !== null && progress < 1);
 
       return (
-        <F.Row>
-          <F.Column>
+        <div className="grid-x">
+          <div className="cell">
             <ul className="fa-ul">
               {window.config.web.mode === 'full' &&
                 <li>
@@ -232,8 +232,8 @@
                 </span> Output generated
               </li>
             </ul>
-          </F.Column>
-        </F.Row>
+          </div>
+        </div>
       );
     }
   });
@@ -380,52 +380,52 @@
           </a>);
       }
       var titleRow = (
-        <F.Row>
-          <F.Column>
+        <div className="grid-x">
+          <div className="cell">
             <h3><a title="View details"
                   href={workflowUrl}>{workflow.get('metadata').title}</a></h3>
-          </F.Column>
-        </F.Row>);
+          </div>
+        </div>);
       return (
         <div className="workflow-item">
           {this.props.smallDisplay &&
           <div>
             {titleRow}
-            <F.Row>
+            <div className="grid-x">
               {previewImage}
               {actionBar}
-            </F.Row>
+            </div>
           </div>}
-          <F.Row>
+          <div className="grid-x">
             {/* Display preview image (second-to last page) if there are pages
             in the workflow */}
             {!this.props.smallDisplay &&
-              <F.Column size={[4]}>
+              <div className="cell small-4">
                 {previewImage}
-              </F.Column>}
-            <F.Column size={[12, 8]}>
+              </div>}
+            <div className="cell medium-8">
               {!this.props.smallDisplay && titleRow}
-              <F.Row>
-                <F.Column>
+              <div className="grid-x">
+                <div className="cell">
                   <p>{workflow.has('pages') ? workflow.get('pages').length : 0} pages</p>
-                </F.Column>
-              </F.Row>
+                </div>
+              </div>
               {window.config.web.mode !== 'scanner' &&
               <StepStatus pages={workflow.get('pages')}
                           status={workflow.get('status')}
                           outFiles={workflow.get('out_files')} />}
               {_.contains(["process", "output"], workflow.get('status').step) &&
-              <F.Row>
-                <F.Column>
+              <div className="grid-x">
+                <div className="cell">
                   <div className="progress">
                     <span className="meter" style={{width: workflow.get('status').step_progress*100 + '%'}}></span>
                   </div>
-                </F.Column>
-              </F.Row>}
+                </div>
+              </div>}
               {!this.props.smallDisplay &&
-              <F.Row><F.Column>{actionBar}</F.Column></F.Row>}
-            </F.Column>
-          </F.Row>
+              <div className="grid-x"><div className="cell">{actionBar}</div></div>}
+            </div>
+          </div>
         </div>
       );
     },
@@ -490,11 +490,11 @@
       else verb = 'scanned';
       return(
         <main>
-          <F.Row>
-            <F.Column>
+          <div className="grid-x">
+            <div className="cell">
               <h1>Workflows</h1>
-            </F.Column>
-          </F.Row>
+            </div>
+          </div>
           <div>
             {this.props.workflows.length > 0 ?
               this.props.workflows.map(function(workflow) {
@@ -502,8 +502,8 @@
                 return <WorkflowItem key={workflow.id} workflow={workflow}
                                      smallDisplay={this.state.mqSmall}/>;
               }, this):
-              <F.Row>
-                <F.Column>
+              <div className="grid-x">
+                <div className="cell">
                   <h2>No workflows yet!</h2>
                   <p>
                     Once you have {verb} a book, you can see it (and all
@@ -526,8 +526,8 @@
                   <p>
                     <a className="button" href="/workflow/new">Create a new workflow</a>
                   </p>
-                </F.Column>
-              </F.Row>}
+                </div>
+              </div>}
           </div>
         </main>);
     }

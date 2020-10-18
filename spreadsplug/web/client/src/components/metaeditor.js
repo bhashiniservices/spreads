@@ -20,6 +20,7 @@
 (function() {
   'use strict';
   var React = require('react'),
+      ReactDOM = require('react-dom'),
       merge = require('merge'),
       _ = require('underscore'),
       jQuery = require('jquery'),
@@ -155,8 +156,8 @@
 
     render: function() {
       var isSmall = util.isSmall();
-      var outerContainer = isSmall ? React.DOM.div : F.Row;
-      var labelContainer = isSmall ? F.Row : React.DOM.div;
+      var outerContainer = ReactDOM.div;
+      var labelContainer = ReactDOM.div;
       var labelClasses = isSmall ? "" : "right inline";
       var formContainer = labelContainer;
       // if the incoming state contains a search term with a real priority then
@@ -168,14 +169,14 @@
         <div>
           <outerContainer>
             <labelContainer>
-              <F.Column size={[12, 2]}>
+              <div className="cell medium-2">
                 <label htmlFor={this.props.key + "-input"} className={labelClasses}>
                   {this.props.name}
                 </label>
-              </F.Column>
+              </div>
             </labelContainer>
             <formContainer>
-              <F.Column size={[12, 10]}>
+              <div className="cell medium-10">
                 <input type="text" placeholder="Enter a search-term to get a list of suggestions"
                       value={this.props.value} ref="input"
                       id={this.props.key + "-input"}
@@ -186,14 +187,14 @@
                 {this.props.error &&
                   <small className="error">{this.props.error}</small>
                 }
-              </F.Column>
+              </div>
             </formContainer>
           </outerContainer>
-          <F.Row>
-            <F.Column size={[12, 10]} offset={[0, 2]}>
+          <div className="grid-x">
+            <div className="cell medium-10 medium-offset-2">
               <AutoCompleteBox list={this.state.autocomplete} onSelect={this.handleSelect} />
-            </F.Column>
-          </F.Row>
+            </div>
+          </div>
         </div>
       );
     }
@@ -210,28 +211,28 @@
 
     render: function() {
       var isSmall = util.isSmall();
-      var outerContainer = isSmall ? React.DOM.div : F.Row;
-      var labelContainer = isSmall ? F.Row : React.DOM.div;
+      var outerContainer = ReactDOM.div;
+      var labelContainer = ReactDOM.div;
       var labelClasses = isSmall ? "" : "right inline";
       var formContainer = labelContainer;
       return (
         <outerContainer>
           <labelContainer>
-            <F.Column size={[12, 2]}>
+            <div className="cell medium-2">
               <label htmlFor={this.props.key + "-input"} className={labelClasses}>
                 {this.props.name}
               </label>
-            </F.Column>
+            </div>
           </labelContainer>
           <formContainer>
-            <F.Column size={[12, 10]}>
+            <div className="cell medium-10">
               <input type="text" ref="input" value={this.props.value}
                     id={this.props.key + "-input"}
                     onChange={function(e){this.props.onChange(e.target.value)}.bind(this)}/>
               {this.props.error &&
                 <small className="error">{this.props.error}</small>
               }
-            </F.Column>
+            </div>
           </formContainer>
         </outerContainer>
       );
@@ -273,21 +274,21 @@
           enumeratedValues;
       if (_.isEmpty(values)) values = [""];
       enumeratedValues = _.zip(_.range(values.length), values);
-      var outerContainer = isSmall ? React.DOM.div : F.Row;
-      var labelContainer = isSmall ? F.Row : React.DOM.div;
-      var formContainer = isSmall ? React.DOM.div : F.Column;
+      var outerContainer = ReactDOM.div;
+      var labelContainer = ReactDOM.div;
+      var formContainer = ReactDOM.div;
       var postfixSize = isSmall ? 2 : 1;
       return (
         <outerContainer className="metadata-fieldset">
           {/* Put label in separate row on small devices */}
           <labelContainer>
-            <F.Column size={[12, 2]}><label>{this.props.name}</label></F.Column>
+            <div className="cell medium-2"><label>{this.props.name}</label></div>
           </labelContainer>
           <formContainer size={10}>
           {_.map(enumeratedValues, function(value) {
             return (
-            <F.Row key={value[0]} collapse={true}>
-              <F.Column size={12-(2*postfixSize)}>
+            <div className="grid-x" key={value[0]} collapse={true}>
+              <div className="cell" size={12-(2*postfixSize)}>
                 <input ref={'field-' + value[0]} type="text" value={value[1]}
                       onChange={function(e) {
                                   this.onModified(value[0], e.target.value)
@@ -295,20 +296,20 @@
                 {!_.isUndefined(this.props.errors[value[0]]) &&
                   <small className="error">{this.props.errors[value[0]]}</small>
                 }
-              </F.Column>
+              </div>
               {canBeRemoved &&
-                <F.Column size={postfixSize}>
+                <div className="cell">
                   <span className="postfix" onClick={_.partial(this.onRemoved, value[0])}>
                     <i className="fa fa-times" />
                   </span>
-                </F.Column>}
-              <F.Column size={canBeRemoved ? postfixSize : postfixSize*2}>
+                </div>}
+              <div className="cell" size={canBeRemoved ? postfixSize : postfixSize*2}>
                 {value[0] === values.length-1 &&
                  <span className="postfix" onClick={this.onAdded}>
                    <i className="fa fa-plus" />
                  </span>}
-              </F.Column>
-            </F.Row>);
+              </div>
+            </div>);
           }, this)}
           </formContainer>
         </outerContainer>);
@@ -374,8 +375,8 @@
     render: function() {
       var errors = merge(this.state.errors, this.props.errors || {});
       return (
-        <F.Row>
-          <F.Column size={[12, 10, 8]}>
+        <div className="grid-x">
+          <div className="large-12 columns">
             <fieldset className="metadata">
               <legend>Metadata</legend>
               {_.map(window.metadataSchema, function(field) {
@@ -405,8 +406,8 @@
                 }
               }, this)}
             </fieldset>
-          </F.Column>
-        </F.Row>
+          </div>
+        </div>
       );
     }
   });

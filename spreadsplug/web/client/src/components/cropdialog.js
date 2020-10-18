@@ -345,18 +345,18 @@
         </div>
         <form onSubmit={this.handleSubmit}>
           {this.props.showInputs && this.state.cropParams &&
-            <F.Row>
+            <div className="grid-x">
               {_.map(["left", "top", "width", "height"], function(param) {
                 return(
-                  <F.Column  key={"input-" + param} size={[6, 3]}>
+                  <div className="cell small-6 medium-3" key={"input-" + param}>
                     <label>{util.capitalize(param)}
                       <input type="number"
                             name={param} value={this.state.cropParams[param]}
                             onChange={this.handleInputChange}/>
                     </label>
-                  </F.Column>
+                  </div>
                 );}, this)}
-            </F.Row>
+            </div>
           }
           <F.Button className={"action-button small"}
                     onClick={this.handleSubmit}>
