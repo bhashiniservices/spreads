@@ -509,6 +509,7 @@
                     Once you have {verb} a book, you can see it (and all
                     other books you have {verb} so far) and do the following
                     things with it:
+                  </p>
                     <ul>
                       <li>Open its detailed view</li>
                       <li>Edit its configuration</li>
@@ -521,7 +522,7 @@
                         <li>Upload it to a remote postprocessing server</li>
                       </div>}
                     </ul>
-                  </p>
+                  
                   <p>
                     <a className="button" href="/workflow/new">Create a new workflow</a>
                   </p>
