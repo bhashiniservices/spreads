@@ -176,17 +176,21 @@
     render: function() {
       return (
         <div className="contain-to-grid fixed">
-          <nav className="top-bar" data-topbar>
-            <ul className="title-area">
-              <li className="name"> <h1><a href="/" title="Return to workflow list"><i className="fa fa-home" /> {this.props.title}</a></h1> </li>
-              <li className="toggle-topbar"><a className="fa fa-list"></a></li>
-            </ul>
-            <section className="top-bar-section">
-              {window.config.web.mode !== 'processor' &&
-              <ul className="left">
-                <li><a href="/workflow/new"><i className="fa fa-plus"></i> New workflow</a></li>
-              </ul>}
-              <ul className="right">
+          <div className="title-bar" data-responsive-toggle="spreads-responsive-menu" data-hide-for="medium">
+            <button className="menu-icon" type="button" data-toggle="spreads-responsive-menu"><i className="fa fa-list"></i></button>
+            <div className="title-bar-title">Menu</div>
+          </div>
+          <div className="top-bar" id="spreads-responsive-menu">
+            <div className="top-bar-left">
+              <ul className="dropdown menu" data-dropdown-menu>
+                <li className="menu-text"><h1><a href="/" title="Return to workflow list"><i className="fa fa-home" />{this.props.title}</a></h1></li>
+                {window.config.web.mode !== 'processor' &&
+                <li><a href="/workflow/new"><i className="fa fa-plus"></i>New workflow</a></li>
+                }
+              </ul>
+            </div>
+            <div className="top-bar-right">
+              <ul className="menu">
                 <li>
                   <a href="/logging">
                     <i className="fa fa-list"></i> Show log
@@ -200,8 +204,8 @@
                 {window.config.web.standalone_device &&
                 (<li><a onClick={this.handleShutdown}><i className="fa fa-power-off"></i> Shut down</a></li>)}
               </ul>
-            </section>
-          </nav>
+            </div>
+          </div>
         </div>
       );
     },
