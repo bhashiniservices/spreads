@@ -13,6 +13,7 @@ node_modules:
 production: node_modules
 	@echo Building minified production package
 	@$(WEBPACK_BIN)
+	@cp -r img/ build/
 
 development: node_modules
 	@echo Building development package with source map
