@@ -46,7 +46,7 @@
   jQuery(document).foundation();
 
   // Initialize touch events in React
-  React.initializeTouchEvents();
+  // React.initializeTouchEvents();
 
   // Intercept the browser's default link handling
   jQuery(document).on('click', 'a:not([data-bypass])', function(e) {
