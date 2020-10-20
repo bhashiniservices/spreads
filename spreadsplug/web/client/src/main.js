@@ -26,7 +26,7 @@
       React = require('react'),
       Foundation = require('foundation-sites/dist/js/foundation.cjs.js');
 
-      // Load stylesheets
+  // Load stylesheets
   require('../scss/app.scss');
   // require("imports-loader?type=commonjs&imports=single|jquery|jQuery&wrapper=window!foundation-sites/dist/js/foundation.cjs.js");
   // require("imports-loader?this=>window,Modernizr=../../../../src/util.js,jQuery=jquery!../node_modules/foundation-sites/js/foundation.topbar.js");

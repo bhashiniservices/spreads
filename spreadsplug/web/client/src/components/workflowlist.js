@@ -522,7 +522,6 @@
                         <li>Upload it to a remote postprocessing server</li>
                       </div>}
                     </ul>
-                  
                   <p>
                     <a className="button" href="/workflow/new">Create a new workflow</a>
                   </p>
