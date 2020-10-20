@@ -80,7 +80,7 @@
       if (this.layerWillUnmount) {
         this.layerWillUnmount(this._layer);
       }
-      React.unmountComponentAtNode(this._layer);
+      // ReactDOM.unmountComponentAtNode(this._layer);
       document.body.removeChild(this._layer);
       this._layer = null;
     }
