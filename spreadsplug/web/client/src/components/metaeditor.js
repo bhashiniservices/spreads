@@ -24,7 +24,7 @@
       merge = require('merge'),
       _ = require('underscore'),
       jQuery = require('jquery'),
-      F = require('foundation-sites/dist/js/foundation.cjs.js'),
+      F = require('./foundation.js'),
       util = require('../util.js'),
       PropTypes = require('prop-types'),
       createClass = require('create-react-class');

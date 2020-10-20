@@ -33,7 +33,7 @@
       Preferences = require('./preferences.js'),
       PropTypes = require('prop-types'),
       createClass = require('create-react-class'),
-      F = require('./foundation');  // Shorthand for Foundation components
+      F = require('./foundation.js');  // Shorthand for Foundation components
 
 
   /**

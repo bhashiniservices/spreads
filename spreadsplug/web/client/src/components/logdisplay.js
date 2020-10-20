@@ -26,7 +26,7 @@
       util = require('../util.js'),
       LayeredComponentMixin = require('./overlays.js').LayeredComponentMixin,
       Overlay = require('./overlays.js').Overlay,
-      F = require('./foundation'),
+      F = require('./foundation.js'),
       PropTypes = require('prop-types'),
       createClass = require('create-react-class');
 

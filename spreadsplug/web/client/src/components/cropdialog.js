@@ -23,7 +23,7 @@
   var _ = require('underscore'),
       React = require('react'),
       util = require('../util.js'),
-      F = require('foundation-sites/dist/js/foundation.cjs.js'),
+      F = require('./foundation.js'),
       PropTypes = require('prop-types'),
       createClass = require('create-react-class');
 
