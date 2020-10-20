@@ -13,6 +13,7 @@ node_modules:
 production: node_modules
 	@echo Building minified production package
 	@$(WEBPACK_BIN)
+	@cp ./node_modules/foundation-sites/dist/css/foundation.css ./build/
 	@cp -r img/ build/
 
 development: node_modules
