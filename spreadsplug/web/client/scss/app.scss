@@ -127,6 +127,11 @@ $fa-font-path: "../node_modules/font-awesome/fonts";
     text-align: center;
     margin-bottom: 1em;
   }
+  .cell {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1em;
+  }
 }
 
 .capture-controls {
@@ -167,6 +172,11 @@ li.page-preview {
   line-height: 1.5;
 
   .columns {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .cell {
     padding-left: 0;
     padding-right: 0;
   }
@@ -558,6 +568,9 @@ li.page-preview {
   .row {
     margin-top: 0.5rem;
   }
+  .grid-x {
+    margin-top: 0.5rem;
+  }
   ul {
     list-style: none;
     margin-left: 0;
@@ -618,6 +631,10 @@ fieldset.config {
       margin-top: 1em;
     }
 
+    .grid-x:not(:first-of-type) {
+      margin-top: 1em;
+    }
+
     label {
       max-width: 80%;
     }
@@ -631,6 +648,11 @@ fieldset.config {
 }
 
 .row.separator {
+  border-top: 1px solid lightgray;
+  padding-top: 1em;
+}
+
+.grid-x.separator {
   border-top: 1px solid lightgray;
   padding-top: 1em;
 }
