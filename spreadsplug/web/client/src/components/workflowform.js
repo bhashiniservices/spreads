@@ -22,6 +22,7 @@
   var React = require('react'),
       _ = require('underscore'),
       merge = require('merge'),
+      F = require('./foundation.js'),
       ModelMixin = require('../../vendor/backbonemixin.js'),
       MetadataEditor = require('./metaeditor.js').MetadataEditor,
       Configuration = require('./config.js').Configuration,
@@ -116,10 +117,10 @@
                            defaultConfig={this.props.globalConfig}/>
             <div className="grid-x">
               <div className="cell">
-                <button type="button" className="button small" disabled={this.state.submitting}
-                    onClick={this.handleSave}>
-                  <i className="fa fa-check"/> Submit
-                </button>
+                <F.Button size='small' disabled={this.state.submitting}
+                          onClick={this.handleSave}>
+                    <i className="fa fa-check"/> Submit
+                </F.Button>
                 </div>
             </div>
           </form>
