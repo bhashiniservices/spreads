@@ -34,7 +34,7 @@ captureAndProcess()
 	ROTATION_ANGLE=$4
 	newfilename_prefix=`printf "%s_%04d" $BOOK_NAME $PAGENUM`
 	gphoto2 ${SUBCOMMAND} --camera="$CAM_MODEL" --filename=${newfilename_prefix}_raw.jpg
-	rotateAndCrop ${newfilename_prefix} $ROTATION_ANGLE
+	rotateAndCrop ${newfilename_prefix} $ROTATION_ANGLE &
 }
 
 
