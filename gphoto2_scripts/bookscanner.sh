@@ -50,10 +50,20 @@ captureImageFromCamera()
 	fi
 }
 
+findStartingPageNumbers()
+{
+	last_page_num=`ls -l ${BOOK_NAME}_*.jpg | tail -1 | awk '{print $9}' | sed -e 's/^.*_//' | sed -e 's/\..*$//' | sed -e 's/^0*//'`
+	((rem=last_page_num%2))
+	((RIGHT_CAM_PAGE_NUM=last_page_num+1+rem))
+	((LEFT_CAM_PAGE_NUM=RIGHT_CAM_PAGE_NUM+1))
+}
+
 main()
 {
 	mkfifo $LEFT_CAM_STATUS_PIPE
 	mkfifo $RIGHT_CAM_STATUS_PIPE
+	findStartingPageNumbers
+	echo "Continuing page numbers from $RIGHT_CAM_PAGE_NUM"
 	while [[ true ]]
 	do
 		echo "Press ENTER to continue scanning"
