@@ -15,7 +15,15 @@ rotateAndCrop()
 	FILENAME_PREFIX=$1
 	ROTATION_ANGLE=$2
 	convert -rotate "$ROTATION_ANGLE" ${FILENAME_PREFIX}_raw.jpg ${FILENAME_PREFIX}_rotated.jpg
+	if [[ $ROTATION_ANGLE == "-90" ]]
+	then
+		convert ${FILENAME_PREFIX}_rotated.jpg -crop 1680x2670+2220+1175 ${FILENAME_PREFIX}.jpg
+	else
+		convert ${FILENAME_PREFIX}_rotated.jpg -crop 1570x2490+220+1095 ${FILENAME_PREFIX}.jpg
+	fi
+
 	rm ${newfilename_prefix}_raw.jpg
+	rm ${newfilename_prefix}_rotated.jpg
 }
 
 captureAndProcess()
