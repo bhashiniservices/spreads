@@ -1,12 +1,12 @@
 #!/bin/bash
 
-export ODD_STATUS_PIPE=/tmp/odd_status_pipe
-export EVEN_STATUS_PIPE=/tmp/even_status_pipe
+export LEFT_CAM_STATUS_PIPE=/tmp/left_status_pipe
+export RIGHT_CAM_STATUS_PIPE=/tmp/right_status_pipe
 
 export BOOK_NAME="ChaturacharyaCharitra"
 
-export ODD_PAGE_NUM=2
-export EVEN_PAGE_NUM=1
+export RIGHT_CAM_PAGE_NUM=1
+export LEFT_CAM_PAGE_NUM=2
 
 source /home/pi/git/spreads/gphoto2_scripts/setCameraEnv.sh
 
@@ -14,44 +14,32 @@ source /home/pi/git/spreads/gphoto2_scripts/setCameraEnv.sh
 # arg2 : folder
 captureImageFromCamera()
 {
-	if [[ $1 == "odd" ]]
+	if [[ $1 == "left_cam" ]]
 	then
-		PORT=$ODD_PORT
-		gphoto2 --capture-image-and-download --port=$PORT
-
-		filename="capt0000.jpg"
-		fileext="jpg"
-		newfilename=`printf "%s_%04d.%s" $BOOK_NAME $ODD_PAGE_NUM $fileext`
-		mv $filename $newfilename
-		#((ODD_PAGE_NUM=ODD_PAGE_NUM+2))
-		echo "done" > $ODD_STATUS_PIPE
+		newfilename=`printf "%s_%04d_raw.jpg" $BOOK_NAME $LEFT_CAM_PAGE_NUM`
+		gphoto2 --capture-image-and-download --camera="$LEFT_CAM_MODEL" --filename=$newfilename
+		echo "done" > $LEFT_CAM_STATUS_PIPE
 	else
-		PORT=$EVEN_PORT
-		gphoto2 --trigger-capture --wait-event-and-download=FILEADDED --port=$PORT
-
-		filename="capt0000.jpg"
-		fileext="jpg"
-		newfilename=`printf "%s_%04d.%s" $BOOK_NAME $EVEN_PAGE_NUM $fileext`
-		mv $filename $newfilename
-		#((EVEN_PAGE_NUM=EVEN_PAGE_NUM+2))
-		echo "done" > $EVEN_STATUS_PIPE
+		newfilename=`printf "%s_%04d_raw.jpg" $BOOK_NAME $RIGHT_CAM_PAGE_NUM`
+		gphoto2 --trigger-capture --wait-event-and-download=FILEADDED --camera="$RIGHT_CAM_MODEL" --filename=$newfilename
+		echo "done" > $RIGHT_CAM_STATUS_PIPE
 	fi
 }
 
 main()
 {
-	mkfifo $ODD_STATUS_PIPE
-	mkfifo $EVEN_STATUS_PIPE
+	mkfifo $LEFT_CAM_STATUS_PIPE
+	mkfifo $RIGHT_CAM_STATUS_PIPE
 	while [[ true ]]
 	do
 		echo "Press ENTER to continue scanning"
 		read
-		captureImageFromCamera "odd" &
-		captureImageFromCamera "even" &
-		read < $ODD_STATUS_PIPE
-		read < $EVEN_STATUS_PIPE
-		((ODD_PAGE_NUM=ODD_PAGE_NUM+2))
-		((EVEN_PAGE_NUM=EVEN_PAGE_NUM+2))
+		captureImageFromCamera "left_cam" &
+		captureImageFromCamera "right_cam" &
+		read < $LEFT_CAM_STATUS_PIPE
+		read < $RIGHT_CAM_STATUS_PIPE
+		((LEFT_CAM_PAGE_NUM=LEFT_CAM_PAGE_NUM+2))
+		((RIGHT_CAM_PAGE_NUM=RIGHT_CAM_PAGE_NUM+2))
 	done
 }
 
