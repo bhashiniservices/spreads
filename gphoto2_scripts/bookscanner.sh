@@ -19,8 +19,8 @@ captureImageFromCamera()
 		PORT=$ODD_PORT
 		gphoto2 --capture-image-and-download --port=$PORT
 
-		filename="capt0000.cr2"
-		fileext="cr2"
+		filename="capt0000.jpg"
+		fileext="jpg"
 		newfilename=`printf "%s_%04d.%s" $BOOK_NAME $ODD_PAGE_NUM $fileext`
 		mv $filename $newfilename
 		#((ODD_PAGE_NUM=ODD_PAGE_NUM+2))

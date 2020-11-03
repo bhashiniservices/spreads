@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Canon Reben 3Ti
+#Canon Rebel 3Ti
 export ODD_PORT=""
 #export ODD_CAM_DIR="/store_00020001/DCIM/101CANON"
 
@@ -16,11 +16,12 @@ setPorts()
 		if [[ $MANUFACTURER =~ Canon.* ]]
 		then
 			ODD_PORT=$PORT
-			gphoto2 --port=$PORT --set-config imageformatsd=9
+			gphoto2 --port=$PORT --set-config imageformat=0
+			gphoto2 --port=$PORT --set-config imageformatsd=0
 		elif [[ $MANUFACTURER =~ Nikon.* ]]
 		then
 			EVEN_PORT=$PORT
-			gphoto2 --port=$PORT --set-config imagequality=3
+			gphoto2 --port=$PORT --set-config imagequality=2
 		fi
 	done
 
