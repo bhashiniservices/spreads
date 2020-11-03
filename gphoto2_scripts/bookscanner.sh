@@ -10,18 +10,34 @@ export LEFT_CAM_PAGE_NUM=2
 
 source /home/pi/git/spreads/gphoto2_scripts/setCameraEnv.sh
 
-# arg1 : port
-# arg2 : folder
+rotateAndCrop()
+{
+	FILENAME_PREFIX=$1
+	ROTATION_ANGLE=$2
+	convert -rotate "$ROTATION_ANGLE" ${FILENAME_PREFIX}_raw.jpg ${FILENAME_PREFIX}_rotated.jpg
+	rm ${newfilename_prefix}_raw.jpg
+}
+
+captureAndProcess()
+{
+	CAM_MODEL=$1
+	SUBCOMMAND=$2
+	PAGENUM=$3
+	ROTATION_ANGLE=$4
+	newfilename_prefix=`printf "%s_%04d" $BOOK_NAME $PAGENUM`
+	gphoto2 ${SUBCOMMAND} --camera="$CAM_MODEL" --filename=${newfilename_prefix}_raw.jpg
+	rotateAndCrop ${newfilename_prefix} $ROTATION_ANGLE
+}
+
+
 captureImageFromCamera()
 {
 	if [[ $1 == "left_cam" ]]
 	then
-		newfilename=`printf "%s_%04d_raw.jpg" $BOOK_NAME $LEFT_CAM_PAGE_NUM`
-		gphoto2 --capture-image-and-download --camera="$LEFT_CAM_MODEL" --filename=$newfilename
+		captureAndProcess "$LEFT_CAM_MODEL" '--capture-image-and-download' $LEFT_CAM_PAGE_NUM "90"
 		echo "done" > $LEFT_CAM_STATUS_PIPE
 	else
-		newfilename=`printf "%s_%04d_raw.jpg" $BOOK_NAME $RIGHT_CAM_PAGE_NUM`
-		gphoto2 --trigger-capture --wait-event-and-download=FILEADDED --camera="$RIGHT_CAM_MODEL" --filename=$newfilename
+		captureAndProcess "$RIGHT_CAM_MODEL" '--trigger-capture --wait-event-and-download=FILEADDED' $RIGHT_CAM_PAGE_NUM "-90"
 		echo "done" > $RIGHT_CAM_STATUS_PIPE
 	fi
 }
