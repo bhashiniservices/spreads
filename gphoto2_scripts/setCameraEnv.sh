@@ -14,5 +14,6 @@ setRightCamConfig()
 	gphoto2 --camera="$RIGHT_CAM_MODEL" --set-config imagequality=2
 }
 
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/pi/Downloads/ImageMagick/MagickCore/.libs:/home/pi/Downloads/ImageMagick/MagickWand/.libs
 setLeftCamConfig
 setRightCamConfig
